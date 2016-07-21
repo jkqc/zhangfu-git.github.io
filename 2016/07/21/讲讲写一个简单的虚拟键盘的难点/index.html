@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="javascript, css, node" />
+  <meta name="keywords" content="javascript," />
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="记录生活的点点滴滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="粪兜青年">
-<meta property="og:url" content="https://zhangfu-git.github.io/index.html">
+<meta name="description" content="最近业务需要一个虚拟键盘，本来是用jquery的Keyboard插件的，由于某些原因需要自己实现一个简单的虚拟键盘。需求的键盘很键盘就是小写字母、数字、点、删除按钮、确认按钮、取消按钮。刚开始的想想实现起来挺简单的，为了渲染更快直接把键盘写成html不用js去动态生成按钮，每个按钮写上想对应的data-id，基本排版就这样。输入iniput值不用多说就是点击获取当前点击对象的data-id让后进">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[jquery写一个简单的虚拟键盘核心代码]">
+<meta property="og:url" content="https://zhangfu-git.github.io/2016/07/21/讲讲写一个简单的虚拟键盘的难点/index.html">
 <meta property="og:site_name" content="粪兜青年">
-<meta property="og:description" content="记录生活的点点滴滴">
+<meta property="og:description" content="最近业务需要一个虚拟键盘，本来是用jquery的Keyboard插件的，由于某些原因需要自己实现一个简单的虚拟键盘。需求的键盘很键盘就是小写字母、数字、点、删除按钮、确认按钮、取消按钮。刚开始的想想实现起来挺简单的，为了渲染更快直接把键盘写成html不用js去动态生成按钮，每个按钮写上想对应的data-id，基本排版就这样。输入iniput值不用多说就是点击获取当前点击对象的data-id让后进">
+<meta property="og:updated_time" content="2016-07-21T16:27:04.720Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="粪兜青年">
-<meta name="twitter:description" content="记录生活的点点滴滴">
+<meta name="twitter:title" content="[jquery写一个简单的虚拟键盘核心代码]">
+<meta name="twitter:description" content="最近业务需要一个虚拟键盘，本来是用jquery的Keyboard插件的，由于某些原因需要自己实现一个简单的虚拟键盘。需求的键盘很键盘就是小写字母、数字、点、删除按钮、确认按钮、取消按钮。刚开始的想想实现起来挺简单的，为了渲染更快直接把键盘写成html不用js去动态生成按钮，每个按钮写上想对应的data-id，基本排版就这样。输入iniput值不用多说就是点击获取当前点击对象的data-id让后进">
 
 
 
@@ -113,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="https://zhangfu-git.github.io/"/>
+  <link rel="canonical" href="https://zhangfu-git.github.io/2016/07/21/讲讲写一个简单的虚拟键盘的难点/"/>
 
-  <title> 粪兜青年 </title>
+  <title> [jquery写一个简单的虚拟键盘核心代码] | 粪兜青年 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,9 +137,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -205,9 +204,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -227,10 +226,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/07/21/讲讲写一个简单的虚拟键盘的难点/" itemprop="url">
-                  [jquery写一个简单的虚拟键盘核心代码]
-                </a>
+                [jquery写一个简单的虚拟键盘核心代码]
               
             
           </h1>
@@ -277,9 +273,7 @@
       
 
       
-        
-          
-            <blockquote>
+        <blockquote>
 <p>最近业务需要一个虚拟键盘，本来是用jquery的Keyboard插件的，由于某些原因需要自己实现一个简单的虚拟键盘。需求的键盘很键盘就是小写字母、数字、点、删除按钮、确认按钮、取消按钮。刚开始的想想实现起来挺简单的，为了渲染更快直接把键盘写成html不用js去动态生成按钮，每个按钮写上想对应的data-id，基本排版就这样。输入iniput值不用多说就是点击获取当前点击对象的data-id让后进行字符操作赋值，然而看似简单的小键盘实现起来还是要花点心思，基本的思路就是获取目前点击的是什么，然后获取input的值，再获取input的光标位置，进行字符串的拼接最后复制回去。不过这里要<code>注意一点input类型是number是无法获取光标的位置的</code>，所有对number类型的input插入数据只能在最后面插入。核心代码段如下：</p>
 </blockquote>
 <ul>
@@ -384,464 +378,59 @@ function removeTexts($node, currInputValue){
   }
 });
 </code></pre><h5 id="监听document的点击事件，判断是否关闭键盘-在点击input和虚拟键盘的时候给isFocus赋值true-这样就实现了点击键盘和input以外的区域实现关闭"><a href="#监听document的点击事件，判断是否关闭键盘-在点击input和虚拟键盘的时候给isFocus赋值true-这样就实现了点击键盘和input以外的区域实现关闭" class="headerlink" title="监听document的点击事件，判断是否关闭键盘(在点击input和虚拟键盘的时候给isFocus赋值true).这样就实现了点击键盘和input以外的区域实现关闭"></a>监听document的点击事件，判断是否关闭键盘(在点击input和虚拟键盘的时候给isFocus赋值true).这样就实现了点击键盘和input以外的区域实现关闭</h5><h3 id="以上就是实现一个简单键盘思路和注意点。"><a href="#以上就是实现一个简单键盘思路和注意点。" class="headerlink" title="以上就是实现一个简单键盘思路和注意点。"></a>以上就是实现一个简单键盘思路和注意点。</h3>
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/19/Ubuntu多窗口终端/" itemprop="url">
-                  [Ubuntu下多窗口终端]
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-19T09:17:48+08:00" content="2016-07-19">
-              2016-07-19
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/19/Ubuntu多窗口终端/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/19/Ubuntu多窗口终端/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <blockquote>
-<p>最近开启项目要开四、五终端，小小的笔记本显示器切来切去真的是太不方便了。于是就安装了一个Terminator终端窗口分割的Python脚本，感觉还不错，妈妈再也不用担心我麻烦的操作终端了。安装使用流程如下：</p>
-</blockquote>
-<ul>
-<li>Terminnator安装：sudo apt-get install terminator</li>
-<li>启动–&gt;终端输入: terminator (出现图标后就把它弄成启动器吧,下次直接点击使用)</li>
-<li>在terminator里面右键点击进行端口切分。</li>
-</ul>
-<h6 id="效果如下："><a href="#效果如下：" class="headerlink" title="效果如下："></a>效果如下：</h6><p><img src="http://tse3.mm.bing.net/th?id=OIP.M9c478f6855c24836ccec626a61cb2ef9o0&amp;pid=15.1" alt="Alt 效果图"></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/07/19/Ubuntu多窗口终端/" rel="next" title="[Ubuntu下多窗口终端]">
+                <i class="fa fa-chevron-left"></i> [Ubuntu下多窗口终端]
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/07/17/工作中经常使用的几个Git命令/" itemprop="url">
-                  [工作中经常使用的几个Git命令]
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-17T23:02:22+08:00" content="2016-07-17">
-              2016-07-17
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/17/工作中经常使用的几个Git命令/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/17/工作中经常使用的几个Git命令/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <blockquote>
-<p>现在的项目开发基本都是用Git管理项目版本，配合github远程仓库来协同工作和管理项目。今天把这个月使用频率最高的几条命令做一个记录：</p>
-</blockquote>
-<ul>
-<li>git checkout branch_name   //切换到某一个分子</li>
-<li>git checkout 文件路径      //还原某个文件</li>
-<li>git add file_name         // 文件修改添加到暂存区</li>
-<li>git commit -m “XXXXX”     // 把暂存区的所有内容提交到当前分支,-m  ‘xxx’进行描述</li>
-<li>git push                  //提交到远程分支</li>
-<li>git pull                  //从远程仓库把最新更新拉回来</li>
-<li>git stash                  //暂存目前工作上的分支</li>
-<li>git stash pop              //恢复前面暂存的分支</li>
-<li>git branch -m old branch   new branch            //重名分支</li>
-<li>git checkout -b new branch name                // 创建分支并切换到改分支(创建的分支文件和当前所在分支的文件一样)</li>
-</ul>
-<h5 id="以上就是这一个月来经常用到一些基本git命令"><a href="#以上就是这一个月来经常用到一些基本git命令" class="headerlink" title="以上就是这一个月来经常用到一些基本git命令"></a>以上就是这一个月来经常用到一些基本git命令</h5>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/11/小白前端说之起源/" itemprop="url">
-                  [前端小白起源说]
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-11T23:02:04+08:00" content="2016-07-11">
-              2016-07-11
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/11/小白前端说之起源/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/11/小白前端说之起源/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>13年入学zjy，很多同学一样进入大学后开始迷途。体验了两年多的大学生活突然意识毕业的危机感，想想自己读了这么多年计算机专业毕业要是找不到一份跟专业有关的工作那岂不是很浪费青春。偶然机会接触html，刚开始啥都不会，去图书馆借了一本html+css的入门书看看打打，通过网上的视频教材学习js，渐渐的对写页面有初步的认识。后来接触了jquery发现有了它世界有美好了许多，记得用jqury写的第一个功能是我同学网站的一个菜单。鼠标移入显示，移出隐藏。那时候拿了一本厚厚jquery入门数据看了一遍，说其在的到最后基本没有记录几个。<br>2015-8和同学一起开发一个电商型网站，也是那次机会让我学习了很多东西。对ajax请求DOM的操作有了一个初步的认识。<br>2015-12进入一家外包公司实习，可能和小部分同学一样，我日常工作就是切图切图切图，这些工作总的来说是在锻炼布局和样式，对js上的运用比较少，可能最多就用几个通过的插件，幸运的话可以写几百行的js代码，各种局限最后让我选择了离开贵地。<br>2016-6来到现家，为期35天的工作让我重新认识了前端，也让我从切图仔慢慢的走向前端开发的道路。node、npm、webpack、bower、less、jade、组件化这也许才是我想要的前端开发。以前jquery用到最多的只是选择器、动画、简单的一些事件。如今$.data()、trigger()、$.when()、done()、fail()、promise()等又让我玩起新高度，前端的路还很长很坎坷，要学习的东西还有很多。不忘初心——–</p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/07/blog/" itemprop="url">
-                  第一篇hexo 博客
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-07T23:54:43+08:00" content="2016-07-07">
-              2016-07-07
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/07/blog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/07/blog/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>自从coding开始收费后自己写的博客网站就没有用过了，一直没有博客写一些总结也不是办法。看看hexo主题的博客还行，现在就在github上部署一个，这个主题挺喜欢的，不过用静态博客还是有些缺点就是不能随地写博客。必须要有这样一个环境，这是一件比较苦恼的事情，不然很麻烦。好了改睡觉……晚安。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -849,6 +438,14 @@ function removeTexts($node, currInputValue){
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/21/讲讲写一个简单的虚拟键盘的难点/"
+           data-title="[jquery写一个简单的虚拟键盘核心代码]" data-url="https://zhangfu-git.github.io/2016/07/21/讲讲写一个简单的虚拟键盘的难点/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -868,8 +465,17 @@ function removeTexts($node, currInputValue){
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://tva4.sinaimg.cn/crop.0.1.640.640.180/9ea24dfdjw8f1njs1l1c7j20hs0hv0ts.jpg"
@@ -912,6 +518,17 @@ function removeTexts($node, currInputValue){
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#以上是整个键盘比较核心的代码，主要的注意点就是input类型为数值型的时候，主要的陌生点就是光标的获取和设置"><span class="nav-number">1.</span> <span class="nav-text">以上是整个键盘比较核心的代码，主要的注意点就是input类型为数值型的时候，主要的陌生点就是光标的获取和设置</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#这里要提到键盘的一个体验性关闭功能的实现，当时有这样一个需求就是点击键盘外的区域隐藏键盘，但点击input不隐藏键盘。刚开始想到的是给键盘外加一个透明的全屏层把点击事件绑定给它，但发现这样没办法实现点击input直接获取光标而且键盘还在的需求。然后又想到拿input的focus事件的注意让它获取焦点显示，让它失去焦点的时候隐藏键盘，但发现不可行点击虚拟键盘就没了。"><span class="nav-number"></span> <span class="nav-text">这里要提到键盘的一个体验性关闭功能的实现，当时有这样一个需求就是点击键盘外的区域隐藏键盘，但点击input不隐藏键盘。刚开始想到的是给键盘外加一个透明的全屏层把点击事件绑定给它，但发现这样没办法实现点击input直接获取光标而且键盘还在的需求。然后又想到拿input的focus事件的注意让它获取焦点显示，让它失去焦点的时候隐藏键盘，但发现不可行点击虚拟键盘就没了。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#最后通过一个isFocus标识来实现需要的效果："><span class="nav-number"></span> <span class="nav-text">最后通过一个isFocus标识来实现需要的效果：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#监听document的点击事件，判断是否关闭键盘-在点击input和虚拟键盘的时候给isFocus赋值true-这样就实现了点击键盘和input以外的区域实现关闭"><span class="nav-number"></span> <span class="nav-text">监听document的点击事件，判断是否关闭键盘(在点击input和虚拟键盘的时候给isFocus赋值true).这样就实现了点击键盘和input以外的区域实现关闭</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以上就是实现一个简单键盘思路和注意点。"><span class="nav-number"></span> <span class="nav-text">以上就是实现一个简单键盘思路和注意点。</span></a></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -1016,6 +633,10 @@ function removeTexts($node, currInputValue){
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

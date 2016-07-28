@@ -228,6 +228,168 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/28/2016-7-28/" itemprop="url">
+                  《javascript高级程序设计》笔记04
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-28T22:35:59+08:00" content="2016-07-28">
+              2016-07-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/28/2016-7-28/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/28/2016-7-28/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Array类型"><a href="#Array类型" class="headerlink" title="Array类型"></a>Array类型</h4><p>创建数据的方式有多种，我可以用var myArray = new Array()、也可以直接var myArray= [],javascript中的数组很特别，我们可以更改它的length，来移除最后一项例如：</p>
+<pre><code>var myArray = [&apos;sex&apos;, &apos;name&apos;, &apos;age&apos;];
+myArray.length = 2;
+myArray[2]        //undefined
+</code></pre><p>对数组的操作有以下方法：</p>
+<ul>
+<li>push()——————-//可以接收任意数量的参数，插入数组尾部</li>
+<li>pop()———–// 从数字尾部移除一项，返回删除项</li>
+<li>shift()———-// 移除第一项，并返回改项</li>
+<li>unshift()———//在数组前端添加任意个，并返回新的数组</li>
+<li>reverse()———//颠倒原来的数据顺序</li>
+<li><p>sort()————//按字符串排序</p>
+<p>  <code>sort()还可以传入一个比较函数，我可以通过比较函数返回的值进行数字的排序，比较函数的第一个参数小于第二个参数返回负数，两个参数相等返回0,第一个参数大于第二个参数返回一个正数。</code></p>
+</li>
+<li><p>concat()—-//可以传入一个或多个数组，把这些数组加入原数组尾部</p>
+</li>
+<li>slice()—//接收两参数，该方法返回起始和结束位置之间的项<br>  <code>注意：当传入的为负数，则参数用length作为参数。如果结束小于开始位置，则返回空数组</code></li>
+<li><p>splice()—//这哥们强大，可删除、可替换、可插入,返回的都是删除的项。</p>
+<pre><code>var  colors = [&apos;red&apos;, &apos;green&apos;, &apos;blue&apos;];
+colors.splice(0, 1);   //删除了第一项0表示其实位置，1表示要删除的个数：[&apos;green&apos;,&apos;blue&apos;]
+colors.splice(1, 0, &apos;yellow&apos;)  //从位置1开始删除0个插入yellow :[&apos;green&apos;, &apos;yellow&apos;, &apos;blue&apos;]
+colors.splice(1, 1, &apos;gray&apos;)  //从1开始删除1个插入yellow------:[&apos;green&apos;, &apos;gray&apos;, &apos;blue&apos;]
+</code></pre></li>
+<li>indexOf()—–//接收两个参数，第一个要找的项第二个开始找的起点.这哥们是从数组的开头开始向后找</li>
+<li>lastIndexOf() —-//这哥们和上面那个哥们方向相反，功能一样。当他们没找到都是返回-1,<code>要注意的是第一个参数和对比的每个项是使用全等操作符</code><h5 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h5></li>
+<li>every()</li>
+<li>filter()</li>
+<li>forEach</li>
+<li>map()</li>
+<li><p>some()</p>
+<p>他们接收两个参数，一个函数、一个作用域对象。下面用代码说明他们各自的用处</p>
+<pre><code>var numbers = [1,2,3,4,5];
+var everyResult = numbers.every(function(item, index, array){
+    return (item &gt; 2)
+});
+console.log(everyResult)   //false 要数组每项都满足才返回true
+</code></pre></li>
+</ul>
+<pre><code>var someResult = numbers.some(function(item, index, array){
+    return (item &gt; 2)
+});
+console.log(someResult)    //true  有一个项满足条件就返回true
+
+var filterResult = numbers.filter(function(item, index, array){
+  return (itme &gt; 2)
+});
+console.log(filterResult)  //[3,4,5]  过滤出大于2的项并返回新数组
+
+var mapResult = numbers.map(function(item, index, array){
+  return item * 2;
+});
+console.log(mapResult)  //[2,4,6,8,10] 把每进行操作，然后返回操作后的数组
+
+forEach()  //这个方法没有返回值，一般我用它来遍历
+</code></pre><ul>
+<li>reduce()—//迭代数组的所有项，然后构建一个最终返回值.方向从left开始</li>
+<li><p>reduceRight() –//和上面一样，方向从right开始.看代码好理解：</p>
+<p>  var values = [1,2,3,4,5];<br>  var sum = values.reduce(function(prev, cur, index, array){</p>
+<pre><code>return prev + cur;
+</code></pre><p>  });<br>  sum // 15;</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/27/2016-7-27/" itemprop="url">
                   <javascript高级程序设计>笔记03
                 </a>
@@ -1341,7 +1503,7 @@ function removeTexts($node, currInputValue){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

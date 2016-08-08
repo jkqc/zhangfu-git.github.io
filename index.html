@@ -228,6 +228,124 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/08/浏览器样式兼容问题/" itemprop="url">
+                  浏览器样式兼容问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-08T22:12:32+08:00" content="2016-08-08">
+              2016-08-08
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/08/浏览器样式兼容问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/08/浏览器样式兼容问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>在写pc端页面的时候，我们经常要考虑一些浏览器的兼容问题（特别是万恶的IE），特别是针对IE的一些hack写法：</p>
+</blockquote>
+<pre><code>p { _color:red }   *html P { color:red }     //IE6 专用
+p { +color: red; *color:red }           //IE6, 7 专用
+p { *+color:red }                      //IE7 专用
+/*\\*//*/p{ +color:red }/**/            //IE8 专用
+:root p{ color:red\9 }                 //IE9 专用
+</code></pre><h5 id="有时候发现这些hack写法不好使，我们就可以巧用条件注释语句（）来实现针对不同浏览器写不同的样式来解决这个问题。"><a href="#有时候发现这些hack写法不好使，我们就可以巧用条件注释语句（）来实现针对不同浏览器写不同的样式来解决这个问题。" class="headerlink" title="有时候发现这些hack写法不好使，我们就可以巧用条件注释语句（）来实现针对不同浏览器写不同的样式来解决这个问题。"></a>有时候发现这些hack写法不好使，我们就可以巧用条件注释语句（<!--[if IE]><![endif]-->）来实现针对不同浏览器写不同的样式来解决这个问题。</h5><pre><code>&lt;!--[if IE 6]&gt;&lt;html class=&quot;ie lt-ie8&quot;&gt;&lt;![endif]--&gt;
+&lt;!--[if IE 7]&gt;&lt;html class=&quot;ie lt-ie8&quot;&gt;&lt;![endif]--&gt;
+&lt;!--[if IE 8]&gt;&lt;html class=&quot;ie ie8&quot;&gt;&lt;![endif]--&gt;
+&lt;!--[if IE 9]&gt;&lt;html class=&quot;ie ie9&quot;&gt;&lt;![endif]--&gt;
+&lt;!--[if !IE]&gt;&lt;!--&gt; &lt;html&gt; &lt;!--&lt;![endif]--&gt;
+</code></pre><h4 id="这是简书中使用的一段条件注释语句，她通过区别ie不同的版本给html标签添加识别class，然后针对兼容问题进行样式覆盖。"><a href="#这是简书中使用的一段条件注释语句，她通过区别ie不同的版本给html标签添加识别class，然后针对兼容问题进行样式覆盖。" class="headerlink" title="这是简书中使用的一段条件注释语句，她通过区别ie不同的版本给html标签添加识别class，然后针对兼容问题进行样式覆盖。"></a>这是简书中使用的一段条件注释语句，她通过区别ie不同的版本给html标签添加识别class，然后针对兼容问题进行样式覆盖。</h4><h4 id="不同的浏览器、同浏览器不同版本对css的支持都是不一样的，特别是在使用一些css3样式一定要了解它的支持情况，不然很容易造成不同浏览器的兼容问题。例如伪类：read-only-选择器用于选取设置了-“readonly”-属性的元素-IE是完全不支持它如果你把样式写成如下："><a href="#不同的浏览器、同浏览器不同版本对css的支持都是不一样的，特别是在使用一些css3样式一定要了解它的支持情况，不然很容易造成不同浏览器的兼容问题。例如伪类：read-only-选择器用于选取设置了-“readonly”-属性的元素-IE是完全不支持它如果你把样式写成如下：" class="headerlink" title="不同的浏览器、同浏览器不同版本对css的支持都是不一样的，特别是在使用一些css3样式一定要了解它的支持情况，不然很容易造成不同浏览器的兼容问题。例如伪类：read-only (选择器用于选取设置了 “readonly” 属性的元素)IE是完全不支持它如果你把样式写成如下："></a>不同的浏览器、同浏览器不同版本对css的支持都是不一样的，特别是在使用一些css3样式一定要了解它的支持情况，不然很容易造成不同浏览器的兼容问题。例如伪类：read-only (选择器用于选取设置了 “readonly” 属性的元素)IE是完全不支持它如果你把样式写成如下：</h4><pre><code>.test,
+.test:read-only{
+  color:red;
+}
+</code></pre><p>好了，在IE下就直接玩完了test的样式就直接没有了。所有像上面多个class写一起的时候一定要注意其中是否有完全不支持的样式</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/28/2016-7-28/" itemprop="url">
                   《javascript高级程序设计》笔记04
                 </a>
@@ -1503,7 +1621,7 @@ function removeTexts($node, currInputValue){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1513,7 +1631,7 @@ function removeTexts($node, currInputValue){
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>

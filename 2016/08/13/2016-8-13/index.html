@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="随笔," />
+  <meta name="keywords" content="笔记," />
 
 
 
@@ -84,16 +84,37 @@
 
 
 
-<meta name="description" content="13年入学zjy，很多同学一样进入大学后开始迷途。体验了两年多的大学生活突然意识毕业的危机感，想想自己读了这么多年计算机专业毕业要是找不到一份跟专业有关的工作那岂不是很浪费青春。偶然机会接触html，刚开始啥都不会，去图书馆借了一本html+css的入门书看看打打，通过网上的视频教材学习js，渐渐的对写页面有初步的认识。后来接触了jquery发现有了它世界有美好了许多，记得用jqury写的第一个功">
+<meta name="description" content="Date类型
+js创建一个日期对象很简单 new Date();Date没有传入日期的毫秒数者获取当前的日期。
+
+Date.parse()
+Date.parse接收一个表示日期的字符串，然后返回相对应的日期毫秒数,通过它我们就可以创建指定的日期对象：
+
+var myDate = new Date(Date.parse(&amp;quot;Aug 13, 2016&amp;quot;));
+//平时我们创建指定日期">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[前端小白起源说]">
-<meta property="og:url" content="https://zhangfu-git.github.io/2016/07/11/小白前端说之起源/index.html">
+<meta property="og:title" content="《javascript高级程序设计》笔记05">
+<meta property="og:url" content="https://zhangfu-git.github.io/2016/08/13/2016-8-13/index.html">
 <meta property="og:site_name" content="粪兜青年">
-<meta property="og:description" content="13年入学zjy，很多同学一样进入大学后开始迷途。体验了两年多的大学生活突然意识毕业的危机感，想想自己读了这么多年计算机专业毕业要是找不到一份跟专业有关的工作那岂不是很浪费青春。偶然机会接触html，刚开始啥都不会，去图书馆借了一本html+css的入门书看看打打，通过网上的视频教材学习js，渐渐的对写页面有初步的认识。后来接触了jquery发现有了它世界有美好了许多，记得用jqury写的第一个功">
-<meta property="og:updated_time" content="2016-07-11T16:28:35.945Z">
+<meta property="og:description" content="Date类型
+js创建一个日期对象很简单 new Date();Date没有传入日期的毫秒数者获取当前的日期。
+
+Date.parse()
+Date.parse接收一个表示日期的字符串，然后返回相对应的日期毫秒数,通过它我们就可以创建指定的日期对象：
+
+var myDate = new Date(Date.parse(&amp;quot;Aug 13, 2016&amp;quot;));
+//平时我们创建指定日期">
+<meta property="og:updated_time" content="2016-08-13T02:29:43.556Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[前端小白起源说]">
-<meta name="twitter:description" content="13年入学zjy，很多同学一样进入大学后开始迷途。体验了两年多的大学生活突然意识毕业的危机感，想想自己读了这么多年计算机专业毕业要是找不到一份跟专业有关的工作那岂不是很浪费青春。偶然机会接触html，刚开始啥都不会，去图书馆借了一本html+css的入门书看看打打，通过网上的视频教材学习js，渐渐的对写页面有初步的认识。后来接触了jquery发现有了它世界有美好了许多，记得用jqury写的第一个功">
+<meta name="twitter:title" content="《javascript高级程序设计》笔记05">
+<meta name="twitter:description" content="Date类型
+js创建一个日期对象很简单 new Date();Date没有传入日期的毫秒数者获取当前的日期。
+
+Date.parse()
+Date.parse接收一个表示日期的字符串，然后返回相对应的日期毫秒数,通过它我们就可以创建指定的日期对象：
+
+var myDate = new Date(Date.parse(&amp;quot;Aug 13, 2016&amp;quot;));
+//平时我们创建指定日期">
 
 
 
@@ -114,9 +135,9 @@
 
 
 
-  <link rel="canonical" href="https://zhangfu-git.github.io/2016/07/11/小白前端说之起源/"/>
+  <link rel="canonical" href="https://zhangfu-git.github.io/2016/08/13/2016-8-13/"/>
 
-  <title> [前端小白起源说] | 粪兜青年 </title>
+  <title> 《javascript高级程序设计》笔记05 | 粪兜青年 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -226,7 +247,7 @@
             
             
               
-                [前端小白起源说]
+                《javascript高级程序设计》笔记05
               
             
           </h1>
@@ -238,8 +259,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-11T23:02:04+08:00" content="2016-07-11">
-              2016-07-11
+            <time itemprop="dateCreated" datetime="2016-08-13T09:32:31+08:00" content="2016-08-13">
+              2016-08-13
             </time>
           </span>
 
@@ -249,8 +270,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/11/小白前端说之起源/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/11/小白前端说之起源/" itemprop="commentsCount"></span>
+                <a href="/2016/08/13/2016-8-13/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/13/2016-8-13/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -273,8 +294,33 @@
       
 
       
-        <p>13年入学zjy，很多同学一样进入大学后开始迷途。体验了两年多的大学生活突然意识毕业的危机感，想想自己读了这么多年计算机专业毕业要是找不到一份跟专业有关的工作那岂不是很浪费青春。偶然机会接触html，刚开始啥都不会，去图书馆借了一本html+css的入门书看看打打，通过网上的视频教材学习js，渐渐的对写页面有初步的认识。后来接触了jquery发现有了它世界有美好了许多，记得用jqury写的第一个功能是我同学网站的一个菜单。鼠标移入显示，移出隐藏。那时候拿了一本厚厚jquery入门数据看了一遍，说其在的到最后基本没有记录几个。<br>2015-8和同学一起开发一个电商型网站，也是那次机会让我学习了很多东西。对ajax请求DOM的操作有了一个初步的认识。<br>2015-12进入一家外包公司实习，可能和小部分同学一样，我日常工作就是切图切图切图，这些工作总的来说是在锻炼布局和样式，对js上的运用比较少，可能最多就用几个通过的插件，幸运的话可以写几百行的js代码，各种局限最后让我选择了离开贵地。<br>2016-6来到现家，为期35天的工作让我重新认识了前端，也让我从切图仔慢慢的走向前端开发的道路。node、npm、webpack、bower、less、jade、组件化这也许才是我想要的前端开发。以前jquery用到最多的只是选择器、动画、简单的一些事件。如今$.data()、trigger()、$.when()、done()、fail()、promise()等又让我玩起新高度，前端的路还很长很坎坷，要学习的东西还有很多。不忘初心——–</p>
-
+        <h4 id="Date类型"><a href="#Date类型" class="headerlink" title="Date类型"></a>Date类型</h4><blockquote>
+<p>js创建一个日期对象很简单 new Date();Date没有传入日期的毫秒数者获取当前的日期。</p>
+</blockquote>
+<h5 id="Date-parse"><a href="#Date-parse" class="headerlink" title="Date.parse()"></a>Date.parse()</h5><blockquote>
+<p>Date.parse接收一个表示日期的字符串，然后返回相对应的日期毫秒数,通过它我们就可以创建指定的日期对象：</p>
+</blockquote>
+<pre><code>var myDate = new Date(Date.parse(&quot;Aug 13, 2016&quot;));
+//平时我们创建指定日期最多的方式应该是直接传入日期字符串
+var myDate = new Date(&quot;Aug 13, 2016&quot;);  //其实后台还是调用了Date.parse()
+</code></pre><h5 id="日期格式化"><a href="#日期格式化" class="headerlink" title="日期格式化"></a>日期格式化</h5><ul>
+<li>toDateString()  //显示星期几、月、日和年 “Sat Aug 13 2016”</li>
+<li>toTimeString()  //显时、分、秒和时区   “10:10:02 GMT+0800 (CST)”</li>
+<li>toLocaleDateString()  //本地星期几、月、日、年</li>
+<li>toLocaleTimeString()  //本地时、分、秒</li>
+</ul>
+<h5 id="注意-日期对象在不同的浏览器中实现有许多奇怪的行为，其中有一种倾向是将超出范围的值替换为当前值。例如：-January-32-2007在有的浏览器是解析为’February-1-2007’而Opera倾向于插入当前月份的当前日期-January-21-2007-都是21日"><a href="#注意-日期对象在不同的浏览器中实现有许多奇怪的行为，其中有一种倾向是将超出范围的值替换为当前值。例如：-January-32-2007在有的浏览器是解析为’February-1-2007’而Opera倾向于插入当前月份的当前日期-January-21-2007-都是21日" class="headerlink" title="注意: 日期对象在不同的浏览器中实现有许多奇怪的行为，其中有一种倾向是将超出范围的值替换为当前值。例如： January 32, 2007在有的浏览器是解析为’February 1, 2007’而Opera倾向于插入当前月份的当前日期 January 21, 2007(都是21日)"></a>注意: 日期对象在不同的浏览器中实现有许多奇怪的行为，其中有一种倾向是将超出范围的值替换为当前值。例如： January 32, 2007在有的浏览器是解析为’February 1, 2007’而Opera倾向于插入当前月份的当前日期 January 21, 2007(都是21日)</h5><blockquote>
+<p>日期对象还有很多的组件方法，例如：</p>
+</blockquote>
+<pre><code>getTime()           //返回日期毫秒值
+getFullYear()       //4位数的年份
+getMonth()         //返回月份
+getDate()          //返回月份的天数
+getDay()           //返回星期几（0是星期日）
+getHours()        //返回小时数
+getMinutes()      //返回分钟数
+getSeconds()      //返回秒数
+</code></pre><h4 id="当然还有很多其他组件方法，以上是比较常用的"><a href="#当然还有很多其他组件方法，以上是比较常用的" class="headerlink" title="当然还有很多其他组件方法，以上是比较常用的"></a>当然还有很多其他组件方法，以上是比较常用的</h4><h2 id="在项目中我们可能会用moment-js这个库来操作日期和时候-用它我们可以很方便的获取我们想要的格式的日期和时间。"><a href="#在项目中我们可能会用moment-js这个库来操作日期和时候-用它我们可以很方便的获取我们想要的格式的日期和时间。" class="headerlink" title="在项目中我们可能会用moment.js这个库来操作日期和时候,用它我们可以很方便的获取我们想要的格式的日期和时间。"></a>在项目中我们可能会用<a href="http://momentjs.cn/" target="_blank" rel="external">moment.js</a>这个库来操作日期和时候,用它我们可以很方便的获取我们想要的格式的日期和时间。</h2>
       
     </div>
 
@@ -296,7 +342,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/随笔/" rel="tag">#随笔</a>
+            <a href="/tags/笔记/" rel="tag">#笔记</a>
           
         </div>
       
@@ -305,17 +351,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/07/blog/" rel="next" title="第一篇hexo 博客">
-                <i class="fa fa-chevron-left"></i> 第一篇hexo 博客
+              <a href="/2016/08/08/浏览器样式兼容问题/" rel="next" title="浏览器样式兼容问题">
+                <i class="fa fa-chevron-left"></i> 浏览器样式兼容问题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/17/工作中经常使用的几个Git命令/" rel="prev" title="[工作中经常使用的几个Git命令]">
-                [工作中经常使用的几个Git命令] <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -341,8 +383,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/11/小白前端说之起源/"
-           data-title="[前端小白起源说]" data-url="https://zhangfu-git.github.io/2016/07/11/小白前端说之起源/">
+      <div class="ds-thread" data-thread-key="2016/08/13/2016-8-13/"
+           data-title="《javascript高级程序设计》笔记05" data-url="https://zhangfu-git.github.io/2016/08/13/2016-8-13/">
       </div>
     
   </div>
@@ -426,7 +468,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Date类型"><span class="nav-number">1.</span> <span class="nav-text">Date类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Date-parse"><span class="nav-number">1.1.</span> <span class="nav-text">Date.parse()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#日期格式化"><span class="nav-number">1.2.</span> <span class="nav-text">日期格式化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注意-日期对象在不同的浏览器中实现有许多奇怪的行为，其中有一种倾向是将超出范围的值替换为当前值。例如：-January-32-2007在有的浏览器是解析为’February-1-2007’而Opera倾向于插入当前月份的当前日期-January-21-2007-都是21日"><span class="nav-number">1.3.</span> <span class="nav-text">注意: 日期对象在不同的浏览器中实现有许多奇怪的行为，其中有一种倾向是将超出范围的值替换为当前值。例如： January 32, 2007在有的浏览器是解析为’February 1, 2007’而Opera倾向于插入当前月份的当前日期 January 21, 2007(都是21日)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当然还有很多其他组件方法，以上是比较常用的"><span class="nav-number">2.</span> <span class="nav-text">当然还有很多其他组件方法，以上是比较常用的</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在项目中我们可能会用moment-js这个库来操作日期和时候-用它我们可以很方便的获取我们想要的格式的日期和时间。"><span class="nav-number"></span> <span class="nav-text">在项目中我们可能会用moment.js这个库来操作日期和时候,用它我们可以很方便的获取我们想要的格式的日期和时间。</span></a></div>
             
           </div>
         </section>

@@ -15,16 +15,34 @@
 
 
 
-<meta name="description" content="记录生活的点点滴滴">
+<meta name="description" content="这两天一直在学习vue+webpack搭建项目,看了很多篇相关的教程。主要遇到的问题就是webpack配置，但通过这两天的学习发现webpack也没有那么难懂。把每个一个参数的意思搞明白就大致知道怎么配置一个wepback.config.js。这里列几个webpack的入门链接：
+
+
+webpack 入门
+入门Webpack，看这篇就够了
+webpack入坑之旅（一）不是开始的开始
+Webpac">
 <meta property="og:type" content="article">
-<meta property="og:title" content="快速搭建webpack+vue项目">
+<meta property="og:title" content="快速搭建一个webpack+vue项目">
 <meta property="og:url" content="https://zhangfu-git.github.io/2016/08/18/快速搭建webpack-vue项目/index.html">
 <meta property="og:site_name" content="粪兜青年">
-<meta property="og:description" content="记录生活的点点滴滴">
-<meta property="og:updated_time" content="2016-08-18T07:14:42.133Z">
+<meta property="og:description" content="这两天一直在学习vue+webpack搭建项目,看了很多篇相关的教程。主要遇到的问题就是webpack配置，但通过这两天的学习发现webpack也没有那么难懂。把每个一个参数的意思搞明白就大致知道怎么配置一个wepback.config.js。这里列几个webpack的入门链接：
+
+
+webpack 入门
+入门Webpack，看这篇就够了
+webpack入坑之旅（一）不是开始的开始
+Webpac">
+<meta property="og:updated_time" content="2016-08-18T08:06:25.767Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="快速搭建webpack+vue项目">
-<meta name="twitter:description" content="记录生活的点点滴滴">
+<meta name="twitter:title" content="快速搭建一个webpack+vue项目">
+<meta name="twitter:description" content="这两天一直在学习vue+webpack搭建项目,看了很多篇相关的教程。主要遇到的问题就是webpack配置，但通过这两天的学习发现webpack也没有那么难懂。把每个一个参数的意思搞明白就大致知道怎么配置一个wepback.config.js。这里列几个webpack的入门链接：
+
+
+webpack 入门
+入门Webpack，看这篇就够了
+webpack入坑之旅（一）不是开始的开始
+Webpac">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +74,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>快速搭建webpack+vue项目 | 粪兜青年</title>
+<title>快速搭建一个webpack+vue项目 | 粪兜青年</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -185,7 +203,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-笔记/">javascript; 笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript高级设计总结/">javascript高级设计总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-笔记/">javascript; 笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript高级设计总结/">javascript高级设计总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
                     </div>
                 </section>
                 
@@ -281,7 +299,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      快速搭建webpack+vue项目
+      快速搭建一个webpack+vue项目
     </h1>
   
 
@@ -291,6 +309,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -298,7 +320,21 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <blockquote>
+<p>这两天一直在学习vue+webpack搭建项目,看了很多篇相关的教程。主要遇到的问题就是webpack配置，但通过这两天的学习发现webpack也没有那么难懂。把每个一个参数的意思搞明白就大致知道怎么配置一个wepback.config.js。这里列几个webpack的入门链接：</p>
+</blockquote>
+<ul>
+<li><a href="http://www.jianshu.com/p/f890cbfcb11b" target="_blank" rel="external">webpack 入门</a></li>
+<li><a href="http://www.jianshu.com/p/42e11515c10f" target="_blank" rel="external">入门Webpack，看这篇就够了</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/" target="_blank" rel="external">webpack入坑之旅（一）不是开始的开始</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/20367175" target="_blank" rel="external">Webpack傻瓜式指南（一）</a><h6 id="像我一样英文水平不好的同学可以看看这些文章，可以很好的了解webpack-关于vue-webpack的入门这里也推荐几个比较好的链接："><a href="#像我一样英文水平不好的同学可以看看这些文章，可以很好的了解webpack-关于vue-webpack的入门这里也推荐几个比较好的链接：" class="headerlink" title="像我一样英文水平不好的同学可以看看这些文章，可以很好的了解webpack,关于vue + webpack的入门这里也推荐几个比较好的链接："></a>像我一样英文水平不好的同学可以看看这些文章，可以很好的了解webpack,关于vue + webpack的入门这里也推荐几个比较好的链接：</h6></li>
+<li><a href="https://segmentfault.com/a/1190000005614864" target="_blank" rel="external">webpack+vue起步</a></li>
+<li><p><a href="http://www.jianshu.com/p/877f701f0ec0" target="_blank" rel="external">Vue 入门系列之手把手教你搭Webpack</a></p>
+<h6 id="标题-快速的搭建一个webpack-vue那这里就要讲讲如何快速的代码了。有个搭手架交vue-cli-安装了她我们就可以用一条命令快速搭建一个webpack-vue应用。"><a href="#标题-快速的搭建一个webpack-vue那这里就要讲讲如何快速的代码了。有个搭手架交vue-cli-安装了她我们就可以用一条命令快速搭建一个webpack-vue应用。" class="headerlink" title="标题: 快速的搭建一个webpack+vue那这里就要讲讲如何快速的代码了。有个搭手架交vue-cli,安装了她我们就可以用一条命令快速搭建一个webpack+vue应用。"></a>标题: <code>快速的搭建一个webpack+vue</code>那这里就要讲讲如何快速的代码了。有个搭手架交<a href="https://github.com/vuejs/vue-cli" target="_blank" rel="external">vue-cli</a>,安装了她我们就可以用一条命令快速搭建一个webpack+vue应用。</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">npm install -g vue-cli              <span class="comment">//全局安装vue-cli</span></div><div class="line"></div><div class="line">vue init webpack-simple my-vue      <span class="comment">//在你的目录下运行这个就可以快速搭建一个webpack+vue项目</span></div><div class="line"></div><div class="line">npm install                <span class="comment">//安装node_modules依赖</span></div><div class="line"></div><div class="line">npm run dev               <span class="comment">//运行webpack ，直接访问localhost:8080就可以看到搭建好的项目是不是很快</span></div></pre></td></tr></table></figure>
+<h6 id="上面的webpack-simple是类型，搭建一个简单应用。她还有其他三种类型："><a href="#上面的webpack-simple是类型，搭建一个简单应用。她还有其他三种类型：" class="headerlink" title="上面的webpack-simple是类型，搭建一个简单应用。她还有其他三种类型："></a>上面的webpack-simple是类型，搭建一个简单应用。她还有其他三种类型：</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">webpack         <span class="comment">//功能比较全的项目，包括热更新，css提取，单元测试</span></div><div class="line">browserify      <span class="comment">//和上面一样，就是创建一个browserify</span></div><div class="line">browserify-simple</div><div class="line">simple         <span class="comment">//最简单的单一的vue文件</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+
       
     </div>
     
@@ -324,7 +360,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#像我一样英文水平不好的同学可以看看这些文章，可以很好的了解webpack-关于vue-webpack的入门这里也推荐几个比较好的链接："><span class="toc-number">1.</span> <span class="toc-text">像我一样英文水平不好的同学可以看看这些文章，可以很好的了解webpack,关于vue + webpack的入门这里也推荐几个比较好的链接：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#标题-快速的搭建一个webpack-vue那这里就要讲讲如何快速的代码了。有个搭手架交vue-cli-安装了她我们就可以用一条命令快速搭建一个webpack-vue应用。"><span class="toc-number">2.</span> <span class="toc-text">标题: 快速的搭建一个webpack+vue那这里就要讲讲如何快速的代码了。有个搭手架交vue-cli,安装了她我们就可以用一条命令快速搭建一个webpack+vue应用。</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#上面的webpack-simple是类型，搭建一个简单应用。她还有其他三种类型："><span class="toc-number">3.</span> <span class="toc-text">上面的webpack-simple是类型，搭建一个简单应用。她还有其他三种类型：</span></a></li></ol>
         
     </div>
     <style>
@@ -360,7 +396,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"快速搭建webpack+vue项目　| 粪兜青年　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"快速搭建一个webpack+vue项目　| 粪兜青年　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -376,7 +412,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/08/18/快速搭建webpack-vue项目/" data-title="快速搭建webpack+vue项目" data-url="https://zhangfu-git.github.io/2016/08/18/快速搭建webpack-vue项目/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/08/18/快速搭建webpack-vue项目/" data-title="快速搭建一个webpack+vue项目" data-url="https://zhangfu-git.github.io/2016/08/18/快速搭建webpack-vue项目/"></div>
     <script>
         var duoshuoQuery = {short_name:"zhangfu"};
         var loadComment = function(){
@@ -411,7 +447,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/快速搭建webpack-vue项目/">快速搭建webpack+vue项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/13/2016-8-13-1/">javascript "RegExp类型"</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/13/2016-8-13/">《javascript高级程序设计》笔记05</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/08/浏览器样式兼容问题/">浏览器样式兼容问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/28/2016-7-28/">《javascript高级程序设计》笔记04</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/27/2016-7-27/"><javascript高级程序设计>笔记03</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/page/">《javascript高级程序设计》笔记02</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/javascript高级程序设计01/">[《javascript高级程序设计》笔记01]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/21/讲讲写一个简单的虚拟键盘的难点/">[jquery写一个简单的虚拟键盘核心代码]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Ubuntu多窗口终端/">[Ubuntu下多窗口终端]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/17/工作中经常使用的几个Git命令/">[工作中经常使用的几个Git命令]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/11/小白前端说之起源/">[前端小白起源说]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/07/blog/">第一篇hexo 博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/快速搭建webpack-vue项目/">快速搭建一个webpack+vue项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/13/2016-8-13-1/">javascript "RegExp类型"</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/13/2016-8-13/">《javascript高级程序设计》笔记05</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/08/浏览器样式兼容问题/">浏览器样式兼容问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/28/2016-7-28/">《javascript高级程序设计》笔记04</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/27/2016-7-27/"><javascript高级程序设计>笔记03</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/page/">《javascript高级程序设计》笔记02</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/javascript高级程序设计01/">[《javascript高级程序设计》笔记01]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/21/讲讲写一个简单的虚拟键盘的难点/">[jquery写一个简单的虚拟键盘核心代码]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Ubuntu多窗口终端/">[Ubuntu下多窗口终端]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/17/工作中经常使用的几个Git命令/">[工作中经常使用的几个Git命令]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/11/小白前端说之起源/">[前端小白起源说]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/07/blog/">第一篇hexo 博客</a></li></ul>
 
 
 

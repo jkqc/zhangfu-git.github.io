@@ -163,20 +163,14 @@
                         
                             <li><a href="/archives/">所有文章</a></li>
                         
-                            <li><a href="/about/">关于我</a></li>
-                        
                         </ul>
                     </nav>
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="/zhangfu@nasetech.com" title="Email"></a>
+                                <a class="fa Email" href="mailto:zhangfu@nasetech.com" title="Email"></a>
                             
-                                <a class="fa GitHub" href="/zhangfu-git" title="GitHub"></a>
-                            
-                                <a class="fa QQ" href="/403380433" title="QQ"></a>
-                            
-                                <a class="fa 微信" href="/aass25354555" title="微信"></a>
+                                <a class="fa GitHub" href="https://github.com/zhangfu-git" title="GitHub"></a>
                             
                         </ul>
                     </nav>
@@ -240,21 +234,15 @@
                 
                     <li><a href="/archives/">所有文章</a></li>
                 
-                    <li><a href="/about/">关于我</a></li>
-                
                 <div class="clearfix"></div>
                 </ul>
             </nav>
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="/zhangfu@nasetech.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="mailto:zhangfu@nasetech.com" title="Email"></a>
                             
-                                <a class="fa GitHub" target="_blank" href="/zhangfu-git" title="GitHub"></a>
-                            
-                                <a class="fa QQ" target="_blank" href="/403380433" title="QQ"></a>
-                            
-                                <a class="fa 微信" target="_blank" href="/aass25354555" title="微信"></a>
+                                <a class="fa GitHub" target="_blank" href="https://github.com/zhangfu-git" title="GitHub"></a>
                             
                         </ul>
             </nav>
@@ -501,9 +489,46 @@ function removeTexts($node, currInputValue){
         }
 
         
+            // Add comment count
+            $(function(){ 
+                var jsonUrl = "http://api.duoshuo.com/threads/counts.jsonp?short_name=zhangfu&threads=2016/07/21/讲讲写一个简单的虚拟键盘的难点/&callback=?";
+                $.getJSON(jsonUrl, function(result){
+                    $.each(result.response, function(i, field){
+                        var value = field.comments;
+                        if (value > 0) {
+                            $(".count-comment").text(value);
+                            return;
+                        }
+                    })
+                })
+            })
+        
     </script>
     
-    <script> loadComment(); </script>
+    <aside class="comment-bar">
+        <a href="javascript:void(0);">
+            <i class="fa fa-commenting-o animated infinite pulse"></i>
+            <i class="fa fa-spinner fa-pulse"></i>
+            <span class="count-comment"></span>
+        </a>
+    </aside>
+    <script>
+        var $commentBar = $("#comments aside.comment-bar");
+        var load$hide = function(){
+            $commentBar.find("a > i").toggle();
+            loadComment();
+            $commentBar.fadeOut(800);
+        }
+        $commentBar.click(function(){
+            load$hide();
+        })
+        $commentBar.children("a").hover(function(){
+            load$hide();
+        })
+        if (window.location.hash === "#comments") {
+            load$hide();
+        }
+    </script>
 
 </div>
     
@@ -527,7 +552,7 @@ function removeTexts($node, currInputValue){
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/快速搭建webpack-vue项目/">快速搭建一个webpack+vue项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/13/2016-8-13-1/">javascript "RegExp类型"</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/13/2016-8-13/">《javascript高级程序设计》笔记05</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/08/浏览器样式兼容问题/">浏览器样式兼容问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/28/2016-7-28/">《javascript高级程序设计》笔记04</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/27/2016-7-27/"><javascript高级程序设计>笔记03</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/page/">《javascript高级程序设计》笔记02</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/javascript高级程序设计01/">[《javascript高级程序设计》笔记01]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/21/讲讲写一个简单的虚拟键盘的难点/">[jquery写一个简单的虚拟键盘核心代码]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Ubuntu多窗口终端/">[Ubuntu下多窗口终端]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/17/工作中经常使用的几个Git命令/">[工作中经常使用的几个Git命令]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/11/小白前端说之起源/">[前端小白起源说]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/07/blog/">第一篇hexo 博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/19/2016-8-19/">《javascript高级程序设计》笔记06(函数表达式)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/快速搭建webpack-vue项目/">快速搭建一个webpack+vue项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/13/2016-8-13-1/">javascript "RegExp类型"</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/13/2016-8-13/">《javascript高级程序设计》笔记05</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/08/浏览器样式兼容问题/">浏览器样式兼容问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/28/2016-7-28/">《javascript高级程序设计》笔记04</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/27/2016-7-27/"><javascript高级程序设计>笔记03</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/page/">《javascript高级程序设计》笔记02</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/javascript高级程序设计01/">[《javascript高级程序设计》笔记01]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/21/讲讲写一个简单的虚拟键盘的难点/">[jquery写一个简单的虚拟键盘核心代码]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Ubuntu多窗口终端/">[Ubuntu下多窗口终端]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/17/工作中经常使用的几个Git命令/">[工作中经常使用的几个Git命令]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/11/小白前端说之起源/">[前端小白起源说]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/07/blog/">第一篇hexo 博客</a></li></ul>
 
 
 

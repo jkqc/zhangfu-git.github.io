@@ -256,6 +256,94 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-2016-8-20" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/20/2016-8-20/" class="article-date">
+      <time datetime="2016-08-20T01:57:04.000Z" itemprop="datePublished">2016-08-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/20/2016-8-20/">《javascript高级程序设计》笔记07</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>07笔记主要记录了函数的递归、闭包、闭包与变量、还有就是this对象还有比包造成的内存泄漏</p>
+</blockquote>
+<h5 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h5><blockquote>
+<p>闭包一直是javascript里面人们最爱谈的一个话题，那闭包到底是指什么能？书上解释到：闭包是指有权访问另一个函数作用域中的变量的函数(<code>js中是有函数作用域的，就是函数外面访问不到函数里面定义的变量</code>)，</p>
+</blockquote>
+<ul>
+<li>那长啥样呢？其实就是一个函数内部创建了另一个函数。</li>
+<li>那它有什么用呢？一个是读取函数内部的变量，另一个是可以把局部变量保存在内存中<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> time = <span class="number">0</span>;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> time ++;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> myAdd = count();</div><div class="line">myAdd(); <span class="comment">//0</span></div><div class="line">myAdd(); <span class="comment">//1</span></div><div class="line">myAdd(); <span class="comment">//2</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="我们会看到每次运行都在上一次的基础上进行累加，我们用闭包把time保存在了内存中-其实count的执行环境作用域是销毁掉的，但它的活动对象仍然会留在内存中。直到myAdd销毁后才，count的活动对象才会被销毁。"><a href="#我们会看到每次运行都在上一次的基础上进行累加，我们用闭包把time保存在了内存中-其实count的执行环境作用域是销毁掉的，但它的活动对象仍然会留在内存中。直到myAdd销毁后才，count的活动对象才会被销毁。" class="headerlink" title="我们会看到每次运行都在上一次的基础上进行累加，我们用闭包把time保存在了内存中.其实count的执行环境作用域是销毁掉的，但它的活动对象仍然会留在内存中。直到myAdd销毁后才，count的活动对象才会被销毁。"></a>我们会看到每次运行都在上一次的基础上进行累加，我们用闭包把time保存在了内存中.其实count的执行环境作用域是销毁掉的，但它的活动对象仍然会留在内存中。直到myAdd销毁后才，count的活动对象才会被销毁。</h6><h5 id="闭包与变量"><a href="#闭包与变量" class="headerlink" title="闭包与变量"></a>闭包与变量</h5><blockquote>
+<p>由于作用域链的这种配置机制引发了一个副作用，闭包只能取得包含函数中任何函数的最后一个值。举个我们面试会经常遇到的一个问题：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunction</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</div><div class="line">    result[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> i;</div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> myArrayFn = createFunction();</div><div class="line">myArrayFn[<span class="number">0</span>]() <span class="comment">// 10</span></div><div class="line">myArrayFn[<span class="number">1</span>]() <span class="comment">// 10</span></div></pre></td></tr></table></figure>
+<p>可能运行结果让大声喊Why???为什么是10,而不是0和1.不过仔细一看确实是10,我们在for里面只是声明了函数表达式，而这在调用那个匿名函数的时候那时候i已经是10了。那如何才能等到我们想要的结果呢？看下面<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunction</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</div><div class="line">    result[i] = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">      <span class="comment">//var currentIndex = num;</span></div><div class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> num;</div><div class="line">        <span class="comment">//return currentIndex;</span></div><div class="line">      &#125;</div><div class="line">    &#125;(i);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> myArrayFn = createFunction();</div><div class="line">myArrayFn[<span class="number">0</span>]();  <span class="comment">//0</span></div><div class="line">myArrayFn[<span class="number">1</span>]();  <span class="comment">//1</span></div></pre></td></tr></table></figure></p>
+<p>通过重写上面的代码，我们就可以实现返回各自的下标了。这一次我们不是直接返回闭包，而是定义了一个函数并立即执行它，参入i，然后再创建一个匿名函数并返回。这样我们就返回了一个初始化一个num为当时i值的匿名函数。这样执行的时候就返回相对于的值</p>
+<h5 id="this对象"><a href="#this对象" class="headerlink" title="this对象"></a>this对象</h5><blockquote>
+<p>this是运行时基于函数执行环境绑定的。所以this的对象是会变的，这也算一个坑吧。我们可以拿一个经典的例子做个说明：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'小胖子'</span>;</div><div class="line"><span class="comment">//第一种</span></div><div class="line"><span class="keyword">var</span> object = &#123;</div><div class="line">  name : <span class="string">'陈久义'</span>,</div><div class="line">  getName : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">object.getName()();  <span class="comment">//'小胖子'</span></div><div class="line"><span class="comment">//  第二种</span></div><div class="line"><span class="keyword">var</span> object = &#123;</div><div class="line">  name : <span class="string">'陈久义'</span>,</div><div class="line">  getName : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> that.name;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">object.getName();   <span class="comment">//'陈久义'</span></div></pre></td></tr></table></figure>
+<h6 id="通过上面，我们会看到同样是获取this-name的值，但结果是不同的。为什么呢？首先函数调用时会自动取得this和arguments，内部函数在搜索这个两个变量的时，只搜索到其活动对象为止，"><a href="#通过上面，我们会看到同样是获取this-name的值，但结果是不同的。为什么呢？首先函数调用时会自动取得this和arguments，内部函数在搜索这个两个变量的时，只搜索到其活动对象为止，" class="headerlink" title="通过上面，我们会看到同样是获取this.name的值，但结果是不同的。为什么呢？首先函数调用时会自动取得this和arguments，内部函数在搜索这个两个变量的时，只搜索到其活动对象为止，"></a>通过上面，我们会看到同样是获取this.name的值，但结果是不同的。为什么呢？首先函数调用时会自动取得this和arguments，内部函数在搜索这个两个变量的时，只搜索到其活动对象为止，</h6><ul>
+<li>在第一种情况下： 返回了function(){ return this.name },执行这个匿名函数是在全局的执行环境下的。所以this指向window，所有结果是’小胖子’</li>
+<li>第二种情况：同样是返回匿名函数，但我们把外部作用域中的this(object这个对象)保存在闭包可以访问到的变量的。这样就可以让闭包访问到该对象下的name了,所有返回了’陈久义’</li>
+</ul>
+<h5 id="内存泄露"><a href="#内存泄露" class="headerlink" title="内存泄露"></a>内存泄露</h5><blockquote>
+<p>闭包是很容易造成内存泄露的，已经都保存在内存中。既然回收机制没有把它回收了，拿就需要我们手动的回收它。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">myArrayFn = <span class="literal">null</span>; <span class="comment">//手动取消引用</span></div><div class="line"><span class="comment">//书上还有一个解除DOM引用，确保正常回收的例子</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">assignHandler</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'someElement'</span>);</div><div class="line">  <span class="keyword">var</span> id = element.id;</div><div class="line">  el.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(id);   <span class="comment">//在没有定义id时候，我们会用alert(el.id)</span></div><div class="line">  &#125;</div><div class="line">  el = <span class="literal">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="通过把element-id赋id，然后接触el的引用来减少其引用数，确保正常回收占用的内存。"><a href="#通过把element-id赋id，然后接触el的引用来减少其引用数，确保正常回收占用的内存。" class="headerlink" title="通过把element.id赋id，然后接触el的引用来减少其引用数，确保正常回收占用的内存。"></a>通过把element.id赋id，然后接触el的引用来减少其引用数，确保正常回收占用的内存。</h6>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-2016-8-19" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1072,169 +1160,6 @@ date.toLocaleString();
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript高级设计总结/">javascript高级设计总结</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-讲讲写一个简单的虚拟键盘的难点" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/21/讲讲写一个简单的虚拟键盘的难点/" class="article-date">
-      <time datetime="2016-07-21T15:13:16.000Z" itemprop="datePublished">2016-07-21</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/21/讲讲写一个简单的虚拟键盘的难点/">[jquery写一个简单的虚拟键盘核心代码]</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <blockquote>
-<p>最近业务需要一个虚拟键盘，本来是用jquery的Keyboard插件的，由于某些原因需要自己实现一个简单的虚拟键盘。需求的键盘很键盘就是小写字母、数字、点、删除按钮、确认按钮、取消按钮。刚开始的想想实现起来挺简单的，为了渲染更快直接把键盘写成html不用js去动态生成按钮，每个按钮写上想对应的data-id，基本排版就这样。输入iniput值不用多说就是点击获取当前点击对象的data-id让后进行字符操作赋值，然而看似简单的小键盘实现起来还是要花点心思，基本的思路就是获取目前点击的是什么，然后获取input的值，再获取input的光标位置，进行字符串的拼接最后复制回去。不过这里要<code>注意一点input类型是number是无法获取光标的位置的</code>，所有对number类型的input插入数据只能在最后面插入。核心代码段如下：</p>
-</blockquote>
-<ul>
-<li><p>input获取光标位置</p>
-<pre><code>//$node 为input的jquery对象一下雷同
-function getCursorPosition($node){
-  log.debug(&apos;########keypadComponent: getCursorPosition %s#####&apos;)
-  var CaretPos = 0;
-  var objId = $node.get(0);
-  var inputType = $node.attr(&apos;type&apos;);
-  if(inputType === &quot;number&quot;){
-    CaretPos = $node.val().length;
-  }else{
-    if (document.selection) {  // IE Support
-      objId.focus();
-      var Sel = document.selection.createRange();
-      Sel.moveStart(&apos;character&apos;, -objId.value.length);
-      CaretPos = Sel.text.length;
-    }else if(objId.selectionStart || objId.selectionStart == &apos;0&apos;){ // Firefox support
-      CaretPos = objId.selectionStart;
-    }
-  }
-  return CaretPos;
-}
-</code></pre></li>
-<li><p>添加或删除光标位置的改变</p>
-<pre><code>//CaretPos获取到的光标位置，isAdd判断是添加还是删除字符
-function setCursorPosition($node, CaretPos, isAdd){
-  log.debug(&apos;########keypadComponent: setCursorPosition %s#####&apos;)
-  var isAdd = isAdd &amp;&amp; true || false;
-  var inputType = $node.attr(&apos;type&apos;);
-  if(inputType === &quot;number&quot;){
-    return;
-  }else{
-    if(isAdd){
-      var objId = $node.get(0);
-      if(objId.setSelectionRange){
-        objId.focus();
-        objId.setSelectionRange(CaretPos + 1, CaretPos + 1);
-      }else if (objId.createTextRange) {
-        var range = objId.createTextRange();
-        range.collapse(true);
-        range.moveEnd(&apos;character&apos;, CaretPos + 1);
-        range.moveStart(&apos;character&apos;, CaretPos + 1);
-        range.select();
-      }
-    }else{
-      var objId = $node.get(0);
-      if(objId.setSelectionRange){
-        objId.focus();
-        objId.setSelectionRange(CaretPos - 1, CaretPos - 1);
-      }else if (objId.createTextRange) {
-        var range = objId.createTextRange();
-        range.collapse(true);
-        range.moveEnd(&apos;character&apos;, CaretPos - 1);
-        range.moveStart(&apos;character&apos;, CaretPos - 1);
-        range.select();
-      }
-    }
-  }
-}
-</code></pre></li>
-<li><p>文字的插入</p>
-<pre><code>//$node 是input的jquery对象 keyStr是虚拟键盘获取到的data-id
-function inserTexts($node, keyStr){
-  log.debug(&apos;########keypadComponent: inserText %s#####&apos;);
-    CaretPos = getCursorPosition($node),
-    inputStr = $node.val(),
-    objId = $node.get(0),
-    inputType = $node.attr(&apos;type&apos;);
-  log.debug(inputType)
-  if(inputType !== &quot;number&quot;){
-    if(CaretPos !== inputStr.length - 1){
-      var startText = inputStr.substring(0, CaretPos);
-      var endText = inputStr.substring(objId.selectionEnd);
-      var newStr = startText + keyStr + endText;
-      $node.val(newStr);
-    }else{
-      $node.val(inputStr + keyStr);
-    }
-  }else{
-    $node.val(Number(inputStr + keyStr));
-  }
-  setCursorPosition($node, CaretPos, true);
-
-}
-</code></pre></li>
-<li>删除字符<pre><code>//currInputValue 为当前input的value值
-function removeTexts($node, currInputValue){
-  log.debug(&apos;########keypadComponent: removeText %s#####&apos;)
-  var CaretPos = getCursorPosition($node);
-  $node.val(currInputValue &amp;&amp; currInputValue.substring(0, CaretPos - 1 ) + currInputValue.substring(CaretPos, currInputValue.length));
-  setCursorPosition($node, CaretPos, false);
-}
-</code></pre><h6 id="以上是整个键盘比较核心的代码，主要的注意点就是input类型为数值型的时候，主要的陌生点就是光标的获取和设置"><a href="#以上是整个键盘比较核心的代码，主要的注意点就是input类型为数值型的时候，主要的陌生点就是光标的获取和设置" class="headerlink" title="以上是整个键盘比较核心的代码，主要的注意点就是input类型为数值型的时候，主要的陌生点就是光标的获取和设置"></a>以上是整个键盘比较核心的代码，主要的注意点就是input类型为数值型的时候，主要的陌生点就是光标的获取和设置</h6></li>
-</ul>
-<hr>
-<h5 id="这里要提到键盘的一个体验性关闭功能的实现，当时有这样一个需求就是点击键盘外的区域隐藏键盘，但点击input不隐藏键盘。刚开始想到的是给键盘外加一个透明的全屏层把点击事件绑定给它，但发现这样没办法实现点击input直接获取光标而且键盘还在的需求。然后又想到拿input的focus事件的注意让它获取焦点显示，让它失去焦点的时候隐藏键盘，但发现不可行点击虚拟键盘就没了。"><a href="#这里要提到键盘的一个体验性关闭功能的实现，当时有这样一个需求就是点击键盘外的区域隐藏键盘，但点击input不隐藏键盘。刚开始想到的是给键盘外加一个透明的全屏层把点击事件绑定给它，但发现这样没办法实现点击input直接获取光标而且键盘还在的需求。然后又想到拿input的focus事件的注意让它获取焦点显示，让它失去焦点的时候隐藏键盘，但发现不可行点击虚拟键盘就没了。" class="headerlink" title="这里要提到键盘的一个体验性关闭功能的实现，当时有这样一个需求就是点击键盘外的区域隐藏键盘，但点击input不隐藏键盘。刚开始想到的是给键盘外加一个透明的全屏层把点击事件绑定给它，但发现这样没办法实现点击input直接获取光标而且键盘还在的需求。然后又想到拿input的focus事件的注意让它获取焦点显示，让它失去焦点的时候隐藏键盘，但发现不可行点击虚拟键盘就没了。"></a>这里要提到键盘的一个体验性关闭功能的实现，当时有这样一个需求就是点击键盘外的区域隐藏键盘，但点击input不隐藏键盘。刚开始想到的是给键盘外加一个透明的全屏层把点击事件绑定给它，但发现这样没办法实现点击input直接获取光标而且键盘还在的需求。然后又想到拿input的focus事件的注意让它获取焦点显示，让它失去焦点的时候隐藏键盘，但发现不可行点击虚拟键盘就没了。</h5><h5 id="最后通过一个isFocus标识来实现需要的效果："><a href="#最后通过一个isFocus标识来实现需要的效果：" class="headerlink" title="最后通过一个isFocus标识来实现需要的效果："></a>最后通过一个isFocus标识来实现需要的效果：</h5><pre><code>$(document).unbind(&apos;click&apos;).bind(&apos;click&apos;, function(e){
-
-  if(!isFocus){
-    关闭键盘
-  }
-});
-</code></pre><h5 id="监听document的点击事件，判断是否关闭键盘-在点击input和虚拟键盘的时候给isFocus赋值true-这样就实现了点击键盘和input以外的区域实现关闭"><a href="#监听document的点击事件，判断是否关闭键盘-在点击input和虚拟键盘的时候给isFocus赋值true-这样就实现了点击键盘和input以外的区域实现关闭" class="headerlink" title="监听document的点击事件，判断是否关闭键盘(在点击input和虚拟键盘的时候给isFocus赋值true).这样就实现了点击键盘和input以外的区域实现关闭"></a>监听document的点击事件，判断是否关闭键盘(在点击input和虚拟键盘的时候给isFocus赋值true).这样就实现了点击键盘和input以外的区域实现关闭</h5><h3 id="以上就是实现一个简单键盘思路和注意点。"><a href="#以上就是实现一个简单键盘思路和注意点。" class="headerlink" title="以上就是实现一个简单键盘思路和注意点。"></a>以上就是实现一个简单键盘思路和注意点。</h3>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
     </div>
 
       

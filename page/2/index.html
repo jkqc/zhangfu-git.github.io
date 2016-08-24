@@ -256,6 +256,132 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-page" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/23/page/" class="article-date">
+      <time datetime="2016-07-23T14:45:43.000Z" itemprop="datePublished">2016-07-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/23/page/">《javascript高级程序设计》笔记02</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h4 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h4><p>操作符无非就是那种几种: 一元操作符, 位操作符, 布尔操作符, 乘性操作符, 加性操作符, 关系操作符, 相等操作, 条件操作符, 赋值操作符, 逗号操作符.这里记录这些操作符中应该注意的使用.</p>
+<blockquote>
+<h3 id="一元操作符"><a href="#一元操作符" class="headerlink" title="一元操作符"></a>一元操作符</h3></blockquote>
+<ul>
+<li>递增和递减操作符<pre><code>var zhangfu = 1;
+zhangfu ++;   //1
+++ zhangfu;    //3
+</code></pre>从上面可以看出来后置++是操作变量之后进行+1,而前置是+1再进行变量操作</li>
+</ul>
+<ul>
+<li>一元加减操作符<pre><code>var tryzf = &quot;bb&quot;;
++ tryzf    //NaN
+</code></pre></li>
+</ul>
+<p>在计算前都会把tryzf数值转化,当tryzf为对象的时候会调用它的valueOf()或toString()</p>
+<blockquote>
+<p>位操作符</p>
+</blockquote>
+<p>应该来说这个操作符一般用到的概率比较少,这里要注意一个知识点就是<code>无符号右移(&gt;&gt;&gt;)</code>,当这个数是一个负数的时候无符号右移这个值就会变的非常大,主要是负数以其绝对值的二进制进行部门形式表示</p>
+<blockquote>
+<p>布尔操作符<br> 布尔操作符主要有非,与,或运算,我们经常会拿它们进行如下计算:</p>
+</blockquote>
+<pre><code>var isSure = true;
+var age = isSure &amp;&amp; 24 || 18; //24
+</code></pre><p>我们一般用<code>或</code>运行来给一个变量设置默认值,而用<code>与</code>运行进行确定.就像上面当isSure存在的时候age为24不存在的时候为18.</p>
+<ul>
+<li>乘性操作符<pre><code>Infinity * 0        //Nan
+Infinity * (非0数值) //Infinity || -Infinity
+Infinity * Infinity //Infinity至于符号问题和普通乘法一样
+Infinity / Infinity // NaN
+0 / 0               //NaN
+(非0有限数值)  / 0    //Infinity  || -Infinity(其实会发现Infinity / 0也是一样的结果)
+Infinity / (非0)    // Infinity  || -Infinity
+</code></pre></li>
+<li>加性操作符</li>
+</ul>
+<p>这个基本和数学里面的+,-差不,不过要在加运行的时候要注意与字符串的计算</p>
+<pre><code>&quot;you&quot; + 6 + 6     // 结果是&quot;you66&quot; 而不是you12
+Infinity + (-Infinity) || -Infinity - (-Infinity)  //NaN   在这种看起来能抵消的结果都是NaN
+</code></pre><ul>
+<li>关系操作符</li>
+</ul>
+<p>这个也是出频率比较高的一种运算,其要注意的一点就是在字符串做比较的时候都是根据字符编码进行比较的,在我们使用的过程中进程会遇到一些比较容易造成bug的地方.</p>
+<pre><code>&quot;23&quot; &gt; &quot;3&quot;   //false
+ 23 &gt; 3       //true
+&quot;23&quot; &gt; 3   //true
+ 23 &gt; &quot;3&quot;   //true
+</code></pre><p>从上面我们可以看到,当一个是字符,一个是数值.它就会把字符转成数值进行比较</p>
+<ul>
+<li><p>相等操作符<br>这哥们应该是使用率最高的,等于和不等于会进行强制转型.这样你会发现:</p>
+<pre><code>&quot;5&quot; == 5    //true    把字符5转成了数字5.
+</code></pre><p>所以在判断是否相等的时候我们应该尽量使用全等与不全等<code>===与!==</code></p>
+</li>
+<li><p>条件操作符<br>简单的判断我们一般可以就用条件操作符比用if–else–代码量会少点.</p>
+<pre><code>var max = (num1 &gt; num2) ? num1 : num2;
+</code></pre><p>这么一个简单的取最大值的判断就完成了</p>
+</li>
+<li><p>赋值操作符 and 逗号操作符<br>赋值操作符就是从右边向左赋值,还有一些复合赋值操作,逗号操作符一般用的比较多的是多个变量的声明</p>
+<pre><code>var tryzf = &quot;zhangu&quot;,
+    age = 12,
+    sex = &quot;boy&quot;;
+age += 12;    // 其实就是  age = age + 12;
+
+var say = (&apos;hello&apos;, &apos;hi&apos;, &apos;hello hi&apos;);    //say  为 &quot;hello hi&quot;(可以说这种用法我在这本书上才看到)
+</code></pre><p>这就是逗号操作符和赋值操作符的一些运用.</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-笔记/">javascript; 笔记</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-javascript高级程序设计01" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">

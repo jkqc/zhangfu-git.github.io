@@ -256,6 +256,93 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="_posts-2016-7-27" class="article article-type-_posts" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/27/2016-7-27/" class="article-date">
+      <time datetime="2016-07-27T12:44:25.000Z" itemprop="datePublished">2016-07-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/27/2016-7-27/">&lt;javascript高级程序设计&gt;笔记03</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>笔记03是记录变量、作用域、内存问题的内容，上一章节js语句一块没有做相关的记录，主要是这些知识每个语言大致那么样。</p>
+</blockquote>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><h6 id="以前对变量的了解就是一个啥类型都可以存储的容器，通过本书知道了变量包含两种不同的数据类型的值。基本类型值和引用类型值"><a href="#以前对变量的了解就是一个啥类型都可以存储的容器，通过本书知道了变量包含两种不同的数据类型的值。基本类型值和引用类型值" class="headerlink" title="以前对变量的了解就是一个啥类型都可以存储的容器，通过本书知道了变量包含两种不同的数据类型的值。基本类型值和引用类型值"></a>以前对变量的了解就是一个啥类型都可以存储的容器，通过本书知道了变量包含两种不同的数据类型的值。基本类型值和引用类型值</h6><ul>
+<li>基本类型值<ul>
+<li>其实就是前面提到了5种基本数据类型，基本类型是按值访问</li>
+</ul>
+</li>
+<li>引用类型值<ul>
+<li>js中我们是不能直接操作对象的内存空间的，我们其实都是在操作对象的引用。</li>
+</ul>
+</li>
+</ul>
+<p>在变量赋值的时候，基本类型值的变量，复制与原来是相互独立的，例如下：</p>
+<pre><code>var num1 = 10;
+var num2 = num1;
+    --num1;   //9
+    num2   // 10
+</code></pre><p>而引用类型复制出来是指向同一个对象，复制的变量其实是一个指针。所以当原来的值改变了，赋值的也会改变</p>
+<pre><code>var obj1 = new Object();
+var obj2 = obj1;
+obj1.name = &quot;zhangfu&quot;;
+obj2.name     //&quot;zhangfu&quot;  obj2的name也变了
+</code></pre><h4 id="执行环境及作用域"><a href="#执行环境及作用域" class="headerlink" title="执行环境及作用域"></a>执行环境及作用域</h4><p>js中执行环境分全局与局部，全局在浏览器中指window对象，nodejs是global。每个函数都有自己的执行环境，所有局部一般都是值函数里面。在作用域方面我们要知道是没有块级作用域的，我们在if里面声明的变量是可以在if外面访问到的。</p>
+<h4 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h4><p>js具有自动垃圾收集机制，现在的主流的浏览器基本都是使用<code>标记清除</code>垃圾收集方式。虽然我们不用操心内存管理的问题，但在语句执行数量多的时候还是有影响的。函数内容的变量和对象属性在离开执行环境的时候会自动释放，但全局的不会自动释放，所有在没有用的引用我们可以手动释放它</p>
+<pre><code>var obj = new Object();
+obj = null;
+</code></pre><p>赋值null就可以解除引用，这样就可以让它被回收。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-page" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">

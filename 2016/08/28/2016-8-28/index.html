@@ -15,22 +15,31 @@
 
 
 
-<meta name="description" content="BOM是browser object model的缩写，简称浏览器对象模型。window是BOM的核心，全局作用域中声明的所有变量和函数都是window的属性和方法。
+<meta name="description" content="BOM里面还有一些平时我们会用到的对象，例如location对象、navigator对象、history对象
 
-全局变量不能用delete 操作删除，而直接在window对象上定义的属性可以。尝试访问未定义的变量会抛出错误，但通过查询window对象可以知道是否存在。如下:12zhangfu    //Uncaught Reference">
+location
+它提供了与当前窗口中加载的文档有关的信息，还提供了一些导航功能。location的对象属性有：
+
+12345671. hash     //    返回#号后跟零或多个字符，没有返回空     &apos;#content&apos;2. host     //    返回服务器名称和端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《javascript高级程序设计》笔记08">
-<meta property="og:url" content="https://zhangfu-git.github.io/2016/08/24/2016-8-24/index.html">
+<meta property="og:title" content="《javascript高级程序设计》笔记09">
+<meta property="og:url" content="https://zhangfu-git.github.io/2016/08/28/2016-8-28/index.html">
 <meta property="og:site_name" content="粪兜青年">
-<meta property="og:description" content="BOM是browser object model的缩写，简称浏览器对象模型。window是BOM的核心，全局作用域中声明的所有变量和函数都是window的属性和方法。
+<meta property="og:description" content="BOM里面还有一些平时我们会用到的对象，例如location对象、navigator对象、history对象
 
-全局变量不能用delete 操作删除，而直接在window对象上定义的属性可以。尝试访问未定义的变量会抛出错误，但通过查询window对象可以知道是否存在。如下:12zhangfu    //Uncaught Reference">
-<meta property="og:updated_time" content="2016-08-24T15:37:17.939Z">
+location
+它提供了与当前窗口中加载的文档有关的信息，还提供了一些导航功能。location的对象属性有：
+
+12345671. hash     //    返回#号后跟零或多个字符，没有返回空     &apos;#content&apos;2. host     //    返回服务器名称和端">
+<meta property="og:updated_time" content="2016-08-28T04:18:33.116Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《javascript高级程序设计》笔记08">
-<meta name="twitter:description" content="BOM是browser object model的缩写，简称浏览器对象模型。window是BOM的核心，全局作用域中声明的所有变量和函数都是window的属性和方法。
+<meta name="twitter:title" content="《javascript高级程序设计》笔记09">
+<meta name="twitter:description" content="BOM里面还有一些平时我们会用到的对象，例如location对象、navigator对象、history对象
 
-全局变量不能用delete 操作删除，而直接在window对象上定义的属性可以。尝试访问未定义的变量会抛出错误，但通过查询window对象可以知道是否存在。如下:12zhangfu    //Uncaught Reference">
+location
+它提供了与当前窗口中加载的文档有关的信息，还提供了一些导航功能。location的对象属性有：
+
+12345671. hash     //    返回#号后跟零或多个字符，没有返回空     &apos;#content&apos;2. host     //    返回服务器名称和端">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -62,7 +71,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>《javascript高级程序设计》笔记08 | 粪兜青年</title>
+<title>《javascript高级程序设计》笔记09 | 粪兜青年</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -256,11 +265,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-2016-8-24" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2016-8-28" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/24/2016-8-24/" class="article-date">
-      <time datetime="2016-08-24T14:26:30.000Z" itemprop="datePublished">2016-08-24</time>
+      <a href="/2016/08/28/2016-8-28/" class="article-date">
+      <time datetime="2016-08-28T03:39:15.000Z" itemprop="datePublished">2016-08-28</time>
 </a>
 
 
@@ -275,7 +284,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      《javascript高级程序设计》笔记08
+      《javascript高级程序设计》笔记09
     </h1>
   
 
@@ -297,23 +306,22 @@
       
           
         <blockquote>
-<p>BOM是browser object model的缩写，简称浏览器对象模型。window是BOM的核心，全局作用域中声明的所有变量和函数都是window的属性和方法。</p>
+<p>BOM里面还有一些平时我们会用到的对象，例如location对象、navigator对象、history对象</p>
 </blockquote>
-<h6 id="全局变量不能用delete-操作删除，而直接在window对象上定义的属性可以。尝试访问未定义的变量会抛出错误，但通过查询window对象可以知道是否存在。如下"><a href="#全局变量不能用delete-操作删除，而直接在window对象上定义的属性可以。尝试访问未定义的变量会抛出错误，但通过查询window对象可以知道是否存在。如下" class="headerlink" title="全局变量不能用delete 操作删除，而直接在window对象上定义的属性可以。尝试访问未定义的变量会抛出错误，但通过查询window对象可以知道是否存在。如下:"></a>全局变量不能用delete 操作删除，而直接在window对象上定义的属性可以。尝试访问未定义的变量会抛出错误，但通过查询window对象可以知道是否存在。如下:</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">zhangfu    <span class="comment">//Uncaught ReferenceError: zhangfu is not defined(…)</span></div><div class="line"><span class="built_in">window</span>.zhangfu   <span class="comment">//undefined</span></div></pre></td></tr></table></figure>
-<h6 id="用这个方法我们可以判断改变量是否声明"><a href="#用这个方法我们可以判断改变量是否声明" class="headerlink" title="用这个方法我们可以判断改变量是否声明"></a>用这个方法我们可以判断改变量是否声明</h6><h6 id="其他DOM对象还有frames、screenLeft、screenTop、screenX、screenY、innerHeight、innerWidth、windowOpen这些也许用到的不多。里面的很多功能可能都被浏览器禁止了。"><a href="#其他DOM对象还有frames、screenLeft、screenTop、screenX、screenY、innerHeight、innerWidth、windowOpen这些也许用到的不多。里面的很多功能可能都被浏览器禁止了。" class="headerlink" title="其他DOM对象还有frames、screenLeft、screenTop、screenX、screenY、innerHeight、innerWidth、windowOpen这些也许用到的不多。里面的很多功能可能都被浏览器禁止了。"></a>其他DOM对象还有frames、screenLeft、screenTop、screenX、screenY、innerHeight、innerWidth、windowOpen这些也许用到的不多。里面的很多功能可能都被浏览器禁止了。</h6><h5 id="setTimeout-与-setInterval"><a href="#setTimeout-与-setInterval" class="headerlink" title="setTimeout 与 setInterval"></a>setTimeout 与 setInterval</h5><blockquote>
-<p>setTimeout接收两个参数，第一个参数可以是一个包含js的字符或函数，第二个参数是毫秒数，指定的时间过后执行代码。</p>
+<h5 id="location"><a href="#location" class="headerlink" title="location"></a>location</h5><blockquote>
+<p>它提供了与当前窗口中加载的文档有关的信息，还提供了一些导航功能。location的对象属性有：</p>
 </blockquote>
-<h6 id="js是单线程的解析器，因此一定时间内只能运行一段代码，为了控制要执行的代码，就有一个js任务队列，这些任务会按照他们添加队列的顺序执行，可以用它来做超时调用。它有一个clearTimeout-接收一个setTimeout的返回id进行取消。"><a href="#js是单线程的解析器，因此一定时间内只能运行一段代码，为了控制要执行的代码，就有一个js任务队列，这些任务会按照他们添加队列的顺序执行，可以用它来做超时调用。它有一个clearTimeout-接收一个setTimeout的返回id进行取消。" class="headerlink" title="js是单线程的解析器，因此一定时间内只能运行一段代码，为了控制要执行的代码，就有一个js任务队列，这些任务会按照他们添加队列的顺序执行，可以用它来做超时调用。它有一个clearTimeout()接收一个setTimeout的返回id进行取消。"></a>js是单线程的解析器，因此一定时间内只能运行一段代码，为了控制要执行的代码，就有一个js任务队列，这些任务会按照他们添加队列的顺序执行，可以用它来做超时调用。它有一个clearTimeout()接收一个setTimeout的返回id进行取消。</h6><blockquote>
-<p>steInterval指定时间间隔执行代码，他和setTimeout一样有个clearInterval用于取消</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> hash     <span class="comment">//    返回#号后跟零或多个字符，没有返回空     '#content'</span></div><div class="line"><span class="number">2.</span> host     <span class="comment">//    返回服务器名称和端口号       'www.test.com:80'</span></div><div class="line"><span class="number">3.</span> href     <span class="comment">//    返回当前加载完整的URL       'http://www.test.com'</span></div><div class="line"><span class="number">4.</span> pathname        <span class="comment">//返回URL中的目录和文件名  '/test/'</span></div><div class="line"><span class="number">5.</span> port           <span class="comment">//返回URL中指定的端口号   '8090'</span></div><div class="line"><span class="number">6.</span> protocol       <span class="comment">//返回页面使用的协议    'http'</span></div><div class="line"><span class="number">7.</span> search     <span class="comment">// 返回URL的查询字符串     '?name=zhangfu'</span></div></pre></td></tr></table></figure>
+<h6 id="我们经常会用location的href属性进行页面的跳转，获取用hash或者pathname进行导航菜单当前实现高亮的效果。在进行页面跳转可以用下面的代码："><a href="#我们经常会用location的href属性进行页面的跳转，获取用hash或者pathname进行导航菜单当前实现高亮的效果。在进行页面跳转可以用下面的代码：" class="headerlink" title="我们经常会用location的href属性进行页面的跳转，获取用hash或者pathname进行导航菜单当前实现高亮的效果。在进行页面跳转可以用下面的代码："></a>我们经常会用location的href属性进行页面的跳转，获取用hash或者pathname进行导航菜单当前实现高亮的效果。在进行页面跳转可以用下面的代码：</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">------------有历史记录跳转</div><div class="line">location.assign(<span class="string">'https://zhangfu-git.github.io/'</span>);</div><div class="line"><span class="built_in">window</span>.location = <span class="string">'https://zhangfu-git.github.io/'</span>;</div><div class="line">location.href = <span class="string">'https://zhangfu-git.github.io/'</span>;</div><div class="line"></div><div class="line">---------无历史记录</div><div class="line">location.replace(<span class="string">'https://zhangfu-git.github.io/'</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">location.reload()     <span class="comment">//重新加载(有可能从缓存中加载)</span></div><div class="line">location.reload(<span class="literal">true</span>)  <span class="comment">//重新加载(从服务器重新加载)</span></div></pre></td></tr></table></figure>
+<h5 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h5><blockquote>
+<p>navigator有挺多的属性，我们可以用其中的appName(完整的浏览器名称)，appVersion(浏览器的版本，一般不与实际的浏览器版本对应),用它们来识别浏览器：</p>
 </blockquote>
-<h5 id="系统对话框"><a href="#系统对话框" class="headerlink" title="系统对话框"></a>系统对话框</h5><blockquote>
-<p>可能我们用到最多的是alert，但很少用系统自带，太丑了!不过我们还是要做一个了解</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">detectBrowser</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line"><span class="keyword">var</span> browser = navigator.appName</div><div class="line"><span class="keyword">var</span> b_version = navigator.appVersion</div><div class="line"><span class="keyword">var</span> version = <span class="built_in">parseFloat</span>(b_version)</div><div class="line"></div><div class="line"><span class="keyword">if</span> ((browser == <span class="string">"Netscape"</span> || browser == <span class="string">"Microsoft Internet Explorer"</span>) &amp;&amp; (version &gt;= <span class="number">4</span>))</div><div class="line">  &#123;alert(<span class="string">"您的浏览器够先进了！"</span>)&#125;</div><div class="line"><span class="keyword">else</span></div><div class="line">  &#123;alert(<span class="string">"是时候升级您的浏览器了！"</span>)&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h5><blockquote>
+<p>我们可以用history对象访问历史记录,它有以下一些属性:</p>
 </blockquote>
-<p>*confirm()和alert一样接收一个字符串，但它有两个按钮一个ok，一个cancel但点击ok的时候返回true，点击cancel返回false</p>
-<ul>
-<li>prompt(‘hello’, ‘hi’)  第一个是提示语，第二个是默认输入框的值。点击确定返回输入值，或者关闭它返回null。</li>
-<li>window.print()直接调出浏览器的打印，还是有点用的</li>
-</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">history.go(<span class="number">-1</span>)    <span class="comment">//go接收一个整数，负数是后退，整数是前进</span></div><div class="line">history.go(<span class="number">1</span>)</div><div class="line">还有两个简写的方法:</div><div class="line">history.back()   <span class="comment">//后退</span></div><div class="line">history.forward()  <span class="comment">//前进</span></div><div class="line"></div><div class="line">history.length   <span class="comment">//可以用它来判断是否有历史记录</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -325,16 +333,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/08/28/2016-8-28/">
-                    《javascript高级程序设计》笔记09
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/08/21/2016-8-21/">
-                    vue+webpack入门学习案例
+                <a href="/2016/08/24/2016-8-24/">
+                    《javascript高级程序设计》笔记08
                 </a>
             </div>
         
@@ -346,7 +348,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#全局变量不能用delete-操作删除，而直接在window对象上定义的属性可以。尝试访问未定义的变量会抛出错误，但通过查询window对象可以知道是否存在。如下"><span class="toc-number">1.</span> <span class="toc-text">全局变量不能用delete 操作删除，而直接在window对象上定义的属性可以。尝试访问未定义的变量会抛出错误，但通过查询window对象可以知道是否存在。如下:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#用这个方法我们可以判断改变量是否声明"><span class="toc-number">2.</span> <span class="toc-text">用这个方法我们可以判断改变量是否声明</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#其他DOM对象还有frames、screenLeft、screenTop、screenX、screenY、innerHeight、innerWidth、windowOpen这些也许用到的不多。里面的很多功能可能都被浏览器禁止了。"><span class="toc-number">3.</span> <span class="toc-text">其他DOM对象还有frames、screenLeft、screenTop、screenX、screenY、innerHeight、innerWidth、windowOpen这些也许用到的不多。里面的很多功能可能都被浏览器禁止了。</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#setTimeout-与-setInterval"><span class="toc-number"></span> <span class="toc-text">setTimeout 与 setInterval</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#js是单线程的解析器，因此一定时间内只能运行一段代码，为了控制要执行的代码，就有一个js任务队列，这些任务会按照他们添加队列的顺序执行，可以用它来做超时调用。它有一个clearTimeout-接收一个setTimeout的返回id进行取消。"><span class="toc-number">1.</span> <span class="toc-text">js是单线程的解析器，因此一定时间内只能运行一段代码，为了控制要执行的代码，就有一个js任务队列，这些任务会按照他们添加队列的顺序执行，可以用它来做超时调用。它有一个clearTimeout()接收一个setTimeout的返回id进行取消。</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#系统对话框"><span class="toc-number"></span> <span class="toc-text">系统对话框</span></a>
+            <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#location"><span class="toc-number">1.</span> <span class="toc-text">location</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#我们经常会用location的href属性进行页面的跳转，获取用hash或者pathname进行导航菜单当前实现高亮的效果。在进行页面跳转可以用下面的代码："><span class="toc-number">1.1.</span> <span class="toc-text">我们经常会用location的href属性进行页面的跳转，获取用hash或者pathname进行导航菜单当前实现高亮的效果。在进行页面跳转可以用下面的代码：</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#navigator"><span class="toc-number">2.</span> <span class="toc-text">navigator</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#history对象"><span class="toc-number">3.</span> <span class="toc-text">history对象</span></a></li></ol>
         
     </div>
     <style>
@@ -382,7 +384,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"《javascript高级程序设计》笔记08　| 粪兜青年　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"《javascript高级程序设计》笔记09　| 粪兜青年　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -398,7 +400,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/08/24/2016-8-24/" data-title="《javascript高级程序设计》笔记08" data-url="https://zhangfu-git.github.io/2016/08/24/2016-8-24/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/08/28/2016-8-28/" data-title="《javascript高级程序设计》笔记09" data-url="https://zhangfu-git.github.io/2016/08/28/2016-8-28/"></div>
     <script>
         var duoshuoQuery = {short_name:"zhangfu"};
         var loadComment = function(){
@@ -411,7 +413,7 @@
         
             // Add comment count
             $(function(){ 
-                var jsonUrl = "http://api.duoshuo.com/threads/counts.jsonp?short_name=zhangfu&threads=2016/08/24/2016-8-24/&callback=?";
+                var jsonUrl = "http://api.duoshuo.com/threads/counts.jsonp?short_name=zhangfu&threads=2016/08/28/2016-8-28/&callback=?";
                 $.getJSON(jsonUrl, function(result){
                     $.each(result.response, function(i, field){
                         var value = field.comments;
@@ -458,15 +460,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/08/28/2016-8-28/" title="上一篇: 《javascript高级程序设计》笔记09">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/08/21/2016-8-21/" title="下一篇: vue+webpack入门学习案例">
+            <a href="/2016/08/24/2016-8-24/" title="下一篇: 《javascript高级程序设计》笔记08">
                 <i class="fa fa-angle-right"></i>
             </a>
         

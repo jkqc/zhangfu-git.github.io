@@ -256,6 +256,82 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-2016-8-28" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/28/2016-8-28/" class="article-date">
+      <time datetime="2016-08-28T03:39:15.000Z" itemprop="datePublished">2016-08-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/28/2016-8-28/">《javascript高级程序设计》笔记09</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>BOM里面还有一些平时我们会用到的对象，例如location对象、navigator对象、history对象</p>
+</blockquote>
+<h5 id="location"><a href="#location" class="headerlink" title="location"></a>location</h5><blockquote>
+<p>它提供了与当前窗口中加载的文档有关的信息，还提供了一些导航功能。location的对象属性有：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> hash     <span class="comment">//    返回#号后跟零或多个字符，没有返回空     '#content'</span></div><div class="line"><span class="number">2.</span> host     <span class="comment">//    返回服务器名称和端口号       'www.test.com:80'</span></div><div class="line"><span class="number">3.</span> href     <span class="comment">//    返回当前加载完整的URL       'http://www.test.com'</span></div><div class="line"><span class="number">4.</span> pathname        <span class="comment">//返回URL中的目录和文件名  '/test/'</span></div><div class="line"><span class="number">5.</span> port           <span class="comment">//返回URL中指定的端口号   '8090'</span></div><div class="line"><span class="number">6.</span> protocol       <span class="comment">//返回页面使用的协议    'http'</span></div><div class="line"><span class="number">7.</span> search     <span class="comment">// 返回URL的查询字符串     '?name=zhangfu'</span></div></pre></td></tr></table></figure>
+<h6 id="我们经常会用location的href属性进行页面的跳转，获取用hash或者pathname进行导航菜单当前实现高亮的效果。在进行页面跳转可以用下面的代码："><a href="#我们经常会用location的href属性进行页面的跳转，获取用hash或者pathname进行导航菜单当前实现高亮的效果。在进行页面跳转可以用下面的代码：" class="headerlink" title="我们经常会用location的href属性进行页面的跳转，获取用hash或者pathname进行导航菜单当前实现高亮的效果。在进行页面跳转可以用下面的代码："></a>我们经常会用location的href属性进行页面的跳转，获取用hash或者pathname进行导航菜单当前实现高亮的效果。在进行页面跳转可以用下面的代码：</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">------------有历史记录跳转</div><div class="line">location.assign(<span class="string">'https://zhangfu-git.github.io/'</span>);</div><div class="line"><span class="built_in">window</span>.location = <span class="string">'https://zhangfu-git.github.io/'</span>;</div><div class="line">location.href = <span class="string">'https://zhangfu-git.github.io/'</span>;</div><div class="line"></div><div class="line">---------无历史记录</div><div class="line">location.replace(<span class="string">'https://zhangfu-git.github.io/'</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">location.reload()     <span class="comment">//重新加载(有可能从缓存中加载)</span></div><div class="line">location.reload(<span class="literal">true</span>)  <span class="comment">//重新加载(从服务器重新加载)</span></div></pre></td></tr></table></figure>
+<h5 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h5><blockquote>
+<p>navigator有挺多的属性，我们可以用其中的appName(完整的浏览器名称)，appVersion(浏览器的版本，一般不与实际的浏览器版本对应),用它们来识别浏览器：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">detectBrowser</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line"><span class="keyword">var</span> browser = navigator.appName</div><div class="line"><span class="keyword">var</span> b_version = navigator.appVersion</div><div class="line"><span class="keyword">var</span> version = <span class="built_in">parseFloat</span>(b_version)</div><div class="line"></div><div class="line"><span class="keyword">if</span> ((browser == <span class="string">"Netscape"</span> || browser == <span class="string">"Microsoft Internet Explorer"</span>) &amp;&amp; (version &gt;= <span class="number">4</span>))</div><div class="line">  &#123;alert(<span class="string">"您的浏览器够先进了！"</span>)&#125;</div><div class="line"><span class="keyword">else</span></div><div class="line">  &#123;alert(<span class="string">"是时候升级您的浏览器了！"</span>)&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h5><blockquote>
+<p>我们可以用history对象访问历史记录,它有以下一些属性:</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">history.go(<span class="number">-1</span>)    <span class="comment">//go接收一个整数，负数是后退，整数是前进</span></div><div class="line">history.go(<span class="number">1</span>)</div><div class="line">还有两个简写的方法:</div><div class="line">history.back()   <span class="comment">//后退</span></div><div class="line">history.forward()  <span class="comment">//前进</span></div><div class="line"></div><div class="line">history.length   <span class="comment">//可以用它来判断是否有历史记录</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-2016-8-24" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -967,93 +1043,6 @@ forEach()  //这个方法没有返回值，一般我用它来遍历
 </code></pre><p>  });<br>  sum // 15;</p>
 </li>
 </ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="_posts-2016-7-27" class="article article-type-_posts" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/27/2016-7-27/" class="article-date">
-      <time datetime="2016-07-27T12:44:25.000Z" itemprop="datePublished">2016-07-27</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/27/2016-7-27/">&lt;javascript高级程序设计&gt;笔记03</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <blockquote>
-<p>笔记03是记录变量、作用域、内存问题的内容，上一章节js语句一块没有做相关的记录，主要是这些知识每个语言大致那么样。</p>
-</blockquote>
-<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><h6 id="以前对变量的了解就是一个啥类型都可以存储的容器，通过本书知道了变量包含两种不同的数据类型的值。基本类型值和引用类型值"><a href="#以前对变量的了解就是一个啥类型都可以存储的容器，通过本书知道了变量包含两种不同的数据类型的值。基本类型值和引用类型值" class="headerlink" title="以前对变量的了解就是一个啥类型都可以存储的容器，通过本书知道了变量包含两种不同的数据类型的值。基本类型值和引用类型值"></a>以前对变量的了解就是一个啥类型都可以存储的容器，通过本书知道了变量包含两种不同的数据类型的值。基本类型值和引用类型值</h6><ul>
-<li>基本类型值<ul>
-<li>其实就是前面提到了5种基本数据类型，基本类型是按值访问</li>
-</ul>
-</li>
-<li>引用类型值<ul>
-<li>js中我们是不能直接操作对象的内存空间的，我们其实都是在操作对象的引用。</li>
-</ul>
-</li>
-</ul>
-<p>在变量赋值的时候，基本类型值的变量，复制与原来是相互独立的，例如下：</p>
-<pre><code>var num1 = 10;
-var num2 = num1;
-    --num1;   //9
-    num2   // 10
-</code></pre><p>而引用类型复制出来是指向同一个对象，复制的变量其实是一个指针。所以当原来的值改变了，赋值的也会改变</p>
-<pre><code>var obj1 = new Object();
-var obj2 = obj1;
-obj1.name = &quot;zhangfu&quot;;
-obj2.name     //&quot;zhangfu&quot;  obj2的name也变了
-</code></pre><h4 id="执行环境及作用域"><a href="#执行环境及作用域" class="headerlink" title="执行环境及作用域"></a>执行环境及作用域</h4><p>js中执行环境分全局与局部，全局在浏览器中指window对象，nodejs是global。每个函数都有自己的执行环境，所有局部一般都是值函数里面。在作用域方面我们要知道是没有块级作用域的，我们在if里面声明的变量是可以在if外面访问到的。</p>
-<h4 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h4><p>js具有自动垃圾收集机制，现在的主流的浏览器基本都是使用<code>标记清除</code>垃圾收集方式。虽然我们不用操心内存管理的问题，但在语句执行数量多的时候还是有影响的。函数内容的变量和对象属性在离开执行环境的时候会自动释放，但全局的不会自动释放，所有在没有用的引用我们可以手动释放它</p>
-<pre><code>var obj = new Object();
-obj = null;
-</code></pre><p>赋值null就可以解除引用，这样就可以让它被回收。</p>
 
       
     </div>

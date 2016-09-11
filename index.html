@@ -256,6 +256,76 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-2016-9-11" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/11/2016-9-11/" class="article-date">
+      <time datetime="2016-09-11T02:52:37.000Z" itemprop="datePublished">2016-09-11</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/11/2016-9-11/">javascript事件流</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>在javascript中事件流描述的是从页面中接收事件的顺序。但IE与Netscape提出的事件流概念是相反的，IE的事件流是事件冒泡流，而Natscape的事件流是事件捕获流。</p>
+</blockquote>
+<h4 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h4><blockquote>
+<p>简单的理解就是事件的触发点开始，然后逐级向上传播。</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;div&gt;click me&lt;/div&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h6 id="如上：当点击div时，发生了事件的冒泡。div–-gt-body–-gt-html–-gt-Doument这就是一个冒泡的过程。"><a href="#如上：当点击div时，发生了事件的冒泡。div–-gt-body–-gt-html–-gt-Doument这就是一个冒泡的过程。" class="headerlink" title="如上：当点击div时，发生了事件的冒泡。div–&gt;body–&gt;html–&gt;Doument这就是一个冒泡的过程。"></a>如上：当点击div时，发生了事件的冒泡。div–&gt;body–&gt;html–&gt;Doument这就是一个冒泡的过程。</h6><h4 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h4><blockquote>
+<p>事件捕获和事件冒泡相反，它是不太具体的节点更早接收到事件。同样是上面的例子，点击div它触发click的顺序是：doucment–&gt;html–&gt;body–&gt;div</p>
+</blockquote>
+<h4 id="跨浏览器的取消事件默认行为和取消捕获或冒泡"><a href="#跨浏览器的取消事件默认行为和取消捕获或冒泡" class="headerlink" title="跨浏览器的取消事件默认行为和取消捕获或冒泡"></a>跨浏览器的取消事件默认行为和取消捕获或冒泡</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">preventDefault</span>(<span class="params">event</span>)</span>&#123;   <span class="comment">//阻止默认行为</span></div><div class="line">  <span class="keyword">if</span>(event.prevntDefault)&#123;</div><div class="line">    event.preventDefault();     </div><div class="line">  &#125;<span class="keyword">else</span>&#123;</div><div class="line">    event.returnValue = <span class="literal">false</span>;  <span class="comment">//IE的event方法</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">stopPropagation</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(event.stopPropagation)&#123;</div><div class="line">    evnent.stopPropagation();</div><div class="line">  &#125;<span class="keyword">else</span>&#123;</div><div class="line">    event.cancelBubble = <span class="literal">true</span>;    <span class="comment">//Ie的event方法</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="comment">//IE和其他的event也是有区别的，为了跨浏览器我们可以这样获取event</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getEvent</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> event ? event : <span class="built_in">window</span>.event;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-2016-8-28-16" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -919,83 +989,6 @@ getSeconds()      //返回秒数
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-浏览器样式兼容问题" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/08/浏览器样式兼容问题/" class="article-date">
-      <time datetime="2016-08-08T14:12:32.000Z" itemprop="datePublished">2016-08-08</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/08/浏览器样式兼容问题/">浏览器样式兼容问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <blockquote>
-<p>在写pc端页面的时候，我们经常要考虑一些浏览器的兼容问题（特别是万恶的IE），特别是针对IE的一些hack写法：</p>
-</blockquote>
-<pre><code>p { _color:red }   *html P { color:red }     //IE6 专用
-p { +color: red; *color:red }           //IE6, 7 专用
-p { *+color:red }                      //IE7 专用
-/*\\*//*/p{ +color:red }/**/            //IE8 专用
-:root p{ color:red\9 }                 //IE9 专用
-</code></pre><h5 id="有时候发现这些hack写法不好使，我们就可以巧用条件注释语句（）来实现针对不同浏览器写不同的样式来解决这个问题。"><a href="#有时候发现这些hack写法不好使，我们就可以巧用条件注释语句（）来实现针对不同浏览器写不同的样式来解决这个问题。" class="headerlink" title="有时候发现这些hack写法不好使，我们就可以巧用条件注释语句（）来实现针对不同浏览器写不同的样式来解决这个问题。"></a>有时候发现这些hack写法不好使，我们就可以巧用条件注释语句（<!--[if IE]><![endif]-->）来实现针对不同浏览器写不同的样式来解决这个问题。</h5><pre><code>&lt;!--[if IE 6]&gt;&lt;html class=&quot;ie lt-ie8&quot;&gt;&lt;![endif]--&gt;
-&lt;!--[if IE 7]&gt;&lt;html class=&quot;ie lt-ie8&quot;&gt;&lt;![endif]--&gt;
-&lt;!--[if IE 8]&gt;&lt;html class=&quot;ie ie8&quot;&gt;&lt;![endif]--&gt;
-&lt;!--[if IE 9]&gt;&lt;html class=&quot;ie ie9&quot;&gt;&lt;![endif]--&gt;
-&lt;!--[if !IE]&gt;&lt;!--&gt; &lt;html&gt; &lt;!--&lt;![endif]--&gt;
-</code></pre><h4 id="这是简书中使用的一段条件注释语句，她通过区别ie不同的版本给html标签添加识别class，然后针对兼容问题进行样式覆盖。"><a href="#这是简书中使用的一段条件注释语句，她通过区别ie不同的版本给html标签添加识别class，然后针对兼容问题进行样式覆盖。" class="headerlink" title="这是简书中使用的一段条件注释语句，她通过区别ie不同的版本给html标签添加识别class，然后针对兼容问题进行样式覆盖。"></a>这是简书中使用的一段条件注释语句，她通过区别ie不同的版本给html标签添加识别class，然后针对兼容问题进行样式覆盖。</h4><h4 id="不同的浏览器、同浏览器不同版本对css的支持都是不一样的，特别是在使用一些css3样式一定要了解它的支持情况，不然很容易造成不同浏览器的兼容问题。例如伪类：read-only-选择器用于选取设置了-“readonly”-属性的元素-IE是完全不支持它如果你把样式写成如下："><a href="#不同的浏览器、同浏览器不同版本对css的支持都是不一样的，特别是在使用一些css3样式一定要了解它的支持情况，不然很容易造成不同浏览器的兼容问题。例如伪类：read-only-选择器用于选取设置了-“readonly”-属性的元素-IE是完全不支持它如果你把样式写成如下：" class="headerlink" title="不同的浏览器、同浏览器不同版本对css的支持都是不一样的，特别是在使用一些css3样式一定要了解它的支持情况，不然很容易造成不同浏览器的兼容问题。例如伪类：read-only (选择器用于选取设置了 “readonly” 属性的元素)IE是完全不支持它如果你把样式写成如下："></a>不同的浏览器、同浏览器不同版本对css的支持都是不一样的，特别是在使用一些css3样式一定要了解它的支持情况，不然很容易造成不同浏览器的兼容问题。例如伪类：read-only (选择器用于选取设置了 “readonly” 属性的元素)IE是完全不支持它如果你把样式写成如下：</h4><pre><code>.test,
-.test:read-only{
-  color:red;
-}
-</code></pre><p>好了，在IE下就直接玩完了test的样式就直接没有了。所有像上面多个class写一起的时候一定要注意其中是否有完全不支持的样式</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
     </div>
 
       

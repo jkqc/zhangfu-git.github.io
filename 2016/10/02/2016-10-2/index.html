@@ -15,34 +15,19 @@
 
 
 
-<meta name="description" content="现在的项目开发基本都是用Git管理项目版本，配合github远程仓库来协同工作和管理项目。今天把这个月使用频率最高的几条命令做一个记录：
-
-
-git checkout branch_name   //切换到某一个分子
-git checkout 文件路径      //还原某个文件
-git add file_name         // 文件修改添加到暂存区
-git commit -m “XXX">
+<meta name="description" content="安全类型检测
+javascript内置了typeof和instanceof用于检测类型，用过的同学可能都知道不太靠谱。就像typeof在Safari(直至第4版)在对正则表达式应用typeof操作符时会返回‘function’，instanceo操作符在存在多个全局作用域的情况下也是问题多多(例如:一个页面包含多个frame),不过我们可以调用Object原生的toString()方法，他会返回一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[工作中经常使用的几个Git命令]">
-<meta property="og:url" content="https://zhangfu-git.github.io/2016/07/17/工作中经常使用的几个Git命令/index.html">
+<meta property="og:title" content="javascript高级技巧">
+<meta property="og:url" content="https://zhangfu-git.github.io/2016/10/02/2016-10-2/index.html">
 <meta property="og:site_name" content="粪兜青年">
-<meta property="og:description" content="现在的项目开发基本都是用Git管理项目版本，配合github远程仓库来协同工作和管理项目。今天把这个月使用频率最高的几条命令做一个记录：
-
-
-git checkout branch_name   //切换到某一个分子
-git checkout 文件路径      //还原某个文件
-git add file_name         // 文件修改添加到暂存区
-git commit -m “XXX">
-<meta property="og:updated_time" content="2016-07-17T15:36:11.526Z">
+<meta property="og:description" content="安全类型检测
+javascript内置了typeof和instanceof用于检测类型，用过的同学可能都知道不太靠谱。就像typeof在Safari(直至第4版)在对正则表达式应用typeof操作符时会返回‘function’，instanceo操作符在存在多个全局作用域的情况下也是问题多多(例如:一个页面包含多个frame),不过我们可以调用Object原生的toString()方法，他会返回一">
+<meta property="og:updated_time" content="2016-10-02T02:51:44.316Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[工作中经常使用的几个Git命令]">
-<meta name="twitter:description" content="现在的项目开发基本都是用Git管理项目版本，配合github远程仓库来协同工作和管理项目。今天把这个月使用频率最高的几条命令做一个记录：
-
-
-git checkout branch_name   //切换到某一个分子
-git checkout 文件路径      //还原某个文件
-git add file_name         // 文件修改添加到暂存区
-git commit -m “XXX">
+<meta name="twitter:title" content="javascript高级技巧">
+<meta name="twitter:description" content="安全类型检测
+javascript内置了typeof和instanceof用于检测类型，用过的同学可能都知道不太靠谱。就像typeof在Safari(直至第4版)在对正则表达式应用typeof操作符时会返回‘function’，instanceo操作符在存在多个全局作用域的情况下也是问题多多(例如:一个页面包含多个frame),不过我们可以调用Object原生的toString()方法，他会返回一">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -74,7 +59,7 @@ git commit -m “XXX">
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>[工作中经常使用的几个Git命令] | 粪兜青年</title>
+<title>javascript高级技巧 | 粪兜青年</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +253,11 @@ git commit -m “XXX">
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-工作中经常使用的几个Git命令" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2016-10-2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/17/工作中经常使用的几个Git命令/" class="article-date">
-      <time datetime="2016-07-17T15:02:22.000Z" itemprop="datePublished">2016-07-17</time>
+      <a href="/2016/10/02/2016-10-2/" class="article-date">
+      <time datetime="2016-10-02T02:04:05.000Z" itemprop="datePublished">2016-10-02</time>
 </a>
 
 
@@ -287,7 +272,7 @@ git commit -m “XXX">
         
   
     <h1 class="article-title" itemprop="name">
-      [工作中经常使用的几个Git命令]
+      javascript高级技巧
     </h1>
   
 
@@ -298,7 +283,7 @@ git commit -m “XXX">
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -308,22 +293,25 @@ git commit -m “XXX">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <blockquote>
-<p>现在的项目开发基本都是用Git管理项目版本，配合github远程仓库来协同工作和管理项目。今天把这个月使用频率最高的几条命令做一个记录：</p>
+        <h4 id="安全类型检测"><a href="#安全类型检测" class="headerlink" title="安全类型检测"></a>安全类型检测</h4><blockquote>
+<p>javascript内置了typeof和instanceof用于检测类型，用过的同学可能都知道不太靠谱。就像typeof在Safari(直至第4版)在对正则表达式应用typeof操作符时会返回‘function’，instanceo操作符在存在多个全局作用域的情况下也是问题多多(例如:一个页面包含多个frame),不过我们可以调用Object原生的toString()方法，他会返回一个[object NativeConstructorName]格式的字符串.</p>
 </blockquote>
-<ul>
-<li>git checkout branch_name   //切换到某一个分子</li>
-<li>git checkout 文件路径      //还原某个文件</li>
-<li>git add file_name         // 文件修改添加到暂存区</li>
-<li>git commit -m “XXXXX”     // 把暂存区的所有内容提交到当前分支,-m  ‘xxx’进行描述</li>
-<li>git push                  //提交到远程分支</li>
-<li>git pull                  //从远程仓库把最新更新拉回来</li>
-<li>git stash                  //暂存目前工作上的分支</li>
-<li>git stash pop              //恢复前面暂存的分支</li>
-<li>git branch -m old branch   new branch            //重名分支</li>
-<li>git checkout -b new branch name                // 创建分支并切换到改分支(创建的分支文件和当前所在分支的文件一样)</li>
-</ul>
-<h5 id="以上就是这一个月来经常用到一些基本git命令"><a href="#以上就是这一个月来经常用到一些基本git命令" class="headerlink" title="以上就是这一个月来经常用到一些基本git命令"></a>以上就是这一个月来经常用到一些基本git命令</h5>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value)  == <span class="string">'[object Array]'</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>我可以用上面的函数来进行检测，检测其他类型也可以用相同的方法。</p>
+</blockquote>
+<h4 id="作用域安全的构造函数"><a href="#作用域安全的构造函数" class="headerlink" title="作用域安全的构造函数"></a>作用域安全的构造函数</h4><blockquote>
+<p>构造函数大家都知道，如下：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">  <span class="keyword">this</span>.age = age;</div><div class="line">  <span class="keyword">this</span>.job = job;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> tryzf = <span class="keyword">new</span> Person(<span class="string">'zhangfu'</span>, <span class="number">24</span>, <span class="string">'front end'</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如上用new连用的时候会创建一个新的Person对象，同时给它分配这些属性，问题出在当没有使用new操作符来调用该构造函数的情况上，由于this对象是运行时绑定的，所以直接调用Person()，this会映射到全局对象window上，导致错误对象属性的以外添加。这个问题的解决方法就是创建一个<code>作用域安全的构造函数</code>。如下:</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(<span class="keyword">this</span> <span class="keyword">instanceof</span> Person)&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">    <span class="keyword">this</span>.job = job;</div><div class="line">  &#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Person(name, age, job);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>上面主要是判断this对象是否是Person实例，如果不是就生成一个Person实例</p>
+</blockquote>
+
       
     </div>
     
@@ -334,16 +322,10 @@ git commit -m “XXX">
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/07/19/Ubuntu多窗口终端/">
-                    [Ubuntu下多窗口终端]
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/07/11/小白前端说之起源/">
-                    [前端小白起源说]
+                <a href="/2016/09/11/2016-9-11/">
+                    javascript事件流
                 </a>
             </div>
         
@@ -355,7 +337,7 @@ git commit -m “XXX">
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#以上就是这一个月来经常用到一些基本git命令"><span class="toc-number">1.</span> <span class="toc-text">以上就是这一个月来经常用到一些基本git命令</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#安全类型检测"><span class="toc-number">1.</span> <span class="toc-text">安全类型检测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#作用域安全的构造函数"><span class="toc-number">2.</span> <span class="toc-text">作用域安全的构造函数</span></a></li></ol>
         
     </div>
     <style>
@@ -391,7 +373,7 @@ git commit -m “XXX">
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"[工作中经常使用的几个Git命令]　| 粪兜青年　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"javascript高级技巧　| 粪兜青年　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -407,7 +389,7 @@ git commit -m “XXX">
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/07/17/工作中经常使用的几个Git命令/" data-title="[工作中经常使用的几个Git命令]" data-url="https://zhangfu-git.github.io/2016/07/17/工作中经常使用的几个Git命令/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/02/2016-10-2/" data-title="javascript高级技巧" data-url="https://zhangfu-git.github.io/2016/10/02/2016-10-2/"></div>
     <script>
         var duoshuoQuery = {short_name:"zhangfu"};
         var loadComment = function(){
@@ -420,7 +402,7 @@ git commit -m “XXX">
         
             // Add comment count
             $(function(){ 
-                var jsonUrl = "http://api.duoshuo.com/threads/counts.jsonp?short_name=zhangfu&threads=2016/07/17/工作中经常使用的几个Git命令/&callback=?";
+                var jsonUrl = "http://api.duoshuo.com/threads/counts.jsonp?short_name=zhangfu&threads=2016/10/02/2016-10-2/&callback=?";
                 $.getJSON(jsonUrl, function(result){
                     $.each(result.response, function(i, field){
                         var value = field.comments;
@@ -467,15 +449,13 @@ git commit -m “XXX">
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/07/19/Ubuntu多窗口终端/" title="上一篇: [Ubuntu下多窗口终端]">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/07/11/小白前端说之起源/" title="下一篇: [前端小白起源说]">
+            <a href="/2016/09/11/2016-9-11/" title="下一篇: javascript事件流">
                 <i class="fa fa-angle-right"></i>
             </a>
         

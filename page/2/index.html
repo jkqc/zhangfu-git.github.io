@@ -256,6 +256,80 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-2016-8-13-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/13/2016-8-13-1/" class="article-date">
+      <time datetime="2016-08-13T03:20:35.000Z" itemprop="datePublished">2016-08-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/13/2016-8-13-1/">javascript &quot;RegExp类型&quot;</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>javascript的RegExp类型支持正则表达式，我们经常会用正则对提交的数据进行验证。创建一个正则表达式：</p>
+</blockquote>
+<pre><code>var expression = / pattern/ flags;
+</code></pre><p>其实pattern 是正则表达式，flags是一个或多个标志。我们进行会看到：</p>
+<pre><code>/正则表达式/g    //g表示全局模式：匹配所有的项，直到没有匹配项停止
+/正则表达式/m    //表示多行模式
+/正则表达式/i    //表示不区分大小写
+</code></pre><h4 id="RegExp有几个比较常用的实例方法"><a href="#RegExp有几个比较常用的实例方法" class="headerlink" title="RegExp有几个比较常用的实例方法"></a>RegExp有几个比较常用的实例方法</h4><ul>
+<li>exec()  //为捕获组而设计的，返回第一个匹配项信息的数组</li>
+<li>test()   //返回true 或者false，看目标字符串与某个模式是否匹配,基本这个是最常用的一个实例方法</li>
+</ul>
+<p>具体用法看下面例子：</p>
+<p>  var text = ‘This is zhangfu, hi zhangfu’;<br>  var pattern = /zhangfu/;<br>  pattern.exec(text)   //[zhangfu]<br>  pattern.test(text);  //true</p>
+<h4 id="在用nwe-RegExp-构造函数创建正在表达式每次都会新建一个RegExp实例，而字面量创建不会-zhangfu-g-还有就是在用new-RegExp-传入字面量表达式的时候要对某些字符进行转义处理"><a href="#在用nwe-RegExp-构造函数创建正在表达式每次都会新建一个RegExp实例，而字面量创建不会-zhangfu-g-还有就是在用new-RegExp-传入字面量表达式的时候要对某些字符进行转义处理" class="headerlink" title="在用nwe RegExp(),构造函数创建正在表达式每次都会新建一个RegExp实例，而字面量创建不会(/zhangfu/g),还有就是在用new RegExp()传入字面量表达式的时候要对某些字符进行转义处理"></a><code>在用nwe RegExp(),构造函数创建正在表达式每次都会新建一个RegExp实例，而字面量创建不会(/zhangfu/g),还有就是在用new RegExp()传入字面量表达式的时候要对某些字符进行转义处理</code></h4><pre><code>/\[bc\]at/  ====&gt;  &quot;\\[bc\\]at&quot;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-2016-8-13" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1163,66 +1237,6 @@ function removeTexts($node, currInputValue){
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-小白前端说之起源" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/11/小白前端说之起源/" class="article-date">
-      <time datetime="2016-07-11T15:02:04.000Z" itemprop="datePublished">2016-07-11</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/11/小白前端说之起源/">[前端小白起源说]</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>13年入学zjy，很多同学一样进入大学后开始迷途。体验了两年多的大学生活突然意识毕业的危机感，想想自己读了这么多年计算机专业毕业要是找不到一份跟专业有关的工作那岂不是很浪费青春。偶然机会接触html，刚开始啥都不会，去图书馆借了一本html+css的入门书看看打打，通过网上的视频教材学习js，渐渐的对写页面有初步的认识。后来接触了jquery发现有了它世界有美好了许多，记得用jqury写的第一个功能是我同学网站的一个菜单。鼠标移入显示，移出隐藏。那时候拿了一本厚厚jquery入门数据看了一遍，说其在的到最后基本没有记录几个。<br>2015-8和同学一起开发一个电商型网站，也是那次机会让我学习了很多东西。对ajax请求DOM的操作有了一个初步的认识。<br>2015-12进入一家外包公司实习，可能和小部分同学一样，我日常工作就是切图切图切图，这些工作总的来说是在锻炼布局和样式，对js上的运用比较少，可能最多就用几个通过的插件，幸运的话可以写几百行的js代码，各种局限最后让我选择了离开贵地。<br>2016-6来到现家，为期35天的工作让我重新认识了前端，也让我从切图仔慢慢的走向前端开发的道路。node、npm、webpack、bower、less、jade、组件化这也许才是我想要的前端开发。以前jquery用到最多的只是选择器、动画、简单的一些事件。如今$.data()、trigger()、$.when()、done()、fail()、promise()等又让我玩起新高度，前端的路还很长很坎坷，要学习的东西还有很多。不忘初心——–</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
     </div>
 
       

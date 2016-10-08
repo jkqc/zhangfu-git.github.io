@@ -256,6 +256,81 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-2016-10-8" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/08/2016-10-8/" class="article-date">
+      <time datetime="2016-10-08T07:01:19.000Z" itemprop="datePublished">2016-10-08</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/08/2016-10-8/">vue.js 1 升级到 vue.js 2.0.1 练习遇到的报错</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h4 id="报错一：-Vue-warn-You-are-using-the-runtime-only-build-of-Vue-where-the-template-option-is-not-available-Either-pre-compile-the-templates-into-render-functions-or-use-the-compiler-included-build-found-in-root-instance"><a href="#报错一：-Vue-warn-You-are-using-the-runtime-only-build-of-Vue-where-the-template-option-is-not-available-Either-pre-compile-the-templates-into-render-functions-or-use-the-compiler-included-build-found-in-root-instance" class="headerlink" title="报错一：[Vue warn]: You are using the runtime-only build of Vue where the template option is not available. Either pre-compile the templates into render functions, or use the compiler-included build. (found in root instance)"></a>报错一：[Vue warn]: You are using the runtime-only build of Vue where the template option is not available. Either pre-compile the templates into render functions, or use the compiler-included build. (found in root instance)</h4><h4 id="报错二：-Vue-warn-Failed-to-mount-component-template-or-render-function-not-defined-found-in-root-instance"><a href="#报错二：-Vue-warn-Failed-to-mount-component-template-or-render-function-not-defined-found-in-root-instance" class="headerlink" title="报错二：[Vue warn]: Failed to mount component: template or render function not defined. (found in root instance)"></a>报错二：[Vue warn]: Failed to mount component: template or render function not defined. (found in root instance)</h4><blockquote>
+<p>现在大部分vue的实例教材都是vue1.0的，但我们用npm安装的都是新版本。这个过程我们就遇到了一些问题，比如上面的报错。我们先看官方的这么一段话</p>
+</blockquote>
+<h4 id="独立构建vs运行构建。"><a href="#独立构建vs运行构建。" class="headerlink" title="独立构建vs运行构建。"></a>独立构建vs运行构建。</h4><ul>
+<li><p>独立构建包括编译和支持 template 选项。 它也依赖于浏览器的接口的存在，所以你不能使用它来为服务器端渲染。</p>
+</li>
+<li><p>运行时构建不包括模板编译，不支持 template 选项。运行时构建，可以用 render 选项，但它只在单文件组件中起作用，因为单文件组件的模板是在构建时预编译到 render 函数中，运行时构建只有独立构建大小的30%，只有 16Kb min+gzip大小。</p>
+</li>
+</ul>
+<blockquote>
+<p>默认 NPM 包导出的是 运行时 构建,为了使用独立构建，在 webpack 配置中添加下面的别名：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">resolve: &#123;</div><div class="line">  alias: &#123;</div><div class="line">    vue: <span class="string">'vue/dist/vue.js'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>原因和问题已经解决～～<a href="http://vuefe.cn/guide/installation.html#独立构建-vs-运行时构建" target="_blank" rel="external">vue 2.0中文文档</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-2016-10-2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -907,80 +982,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2016-8-13-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/13/2016-8-13-1/" class="article-date">
-      <time datetime="2016-08-13T03:20:35.000Z" itemprop="datePublished">2016-08-13</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/13/2016-8-13-1/">javascript &quot;RegExp类型&quot;</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <blockquote>
-<p>javascript的RegExp类型支持正则表达式，我们经常会用正则对提交的数据进行验证。创建一个正则表达式：</p>
-</blockquote>
-<pre><code>var expression = / pattern/ flags;
-</code></pre><p>其实pattern 是正则表达式，flags是一个或多个标志。我们进行会看到：</p>
-<pre><code>/正则表达式/g    //g表示全局模式：匹配所有的项，直到没有匹配项停止
-/正则表达式/m    //表示多行模式
-/正则表达式/i    //表示不区分大小写
-</code></pre><h4 id="RegExp有几个比较常用的实例方法"><a href="#RegExp有几个比较常用的实例方法" class="headerlink" title="RegExp有几个比较常用的实例方法"></a>RegExp有几个比较常用的实例方法</h4><ul>
-<li>exec()  //为捕获组而设计的，返回第一个匹配项信息的数组</li>
-<li>test()   //返回true 或者false，看目标字符串与某个模式是否匹配,基本这个是最常用的一个实例方法</li>
-</ul>
-<p>具体用法看下面例子：</p>
-<p>  var text = ‘This is zhangfu, hi zhangfu’;<br>  var pattern = /zhangfu/;<br>  pattern.exec(text)   //[zhangfu]<br>  pattern.test(text);  //true</p>
-<h4 id="在用nwe-RegExp-构造函数创建正在表达式每次都会新建一个RegExp实例，而字面量创建不会-zhangfu-g-还有就是在用new-RegExp-传入字面量表达式的时候要对某些字符进行转义处理"><a href="#在用nwe-RegExp-构造函数创建正在表达式每次都会新建一个RegExp实例，而字面量创建不会-zhangfu-g-还有就是在用new-RegExp-传入字面量表达式的时候要对某些字符进行转义处理" class="headerlink" title="在用nwe RegExp(),构造函数创建正在表达式每次都会新建一个RegExp实例，而字面量创建不会(/zhangfu/g),还有就是在用new RegExp()传入字面量表达式的时候要对某些字符进行转义处理"></a><code>在用nwe RegExp(),构造函数创建正在表达式每次都会新建一个RegExp实例，而字面量创建不会(/zhangfu/g),还有就是在用new RegExp()传入字面量表达式的时候要对某些字符进行转义处理</code></h4><pre><code>/\[bc\]at/  ====&gt;  &quot;\\[bc\\]at&quot;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
     </div>
 
       

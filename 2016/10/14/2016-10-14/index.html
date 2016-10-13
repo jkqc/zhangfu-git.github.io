@@ -15,34 +15,25 @@
 
 
 
-<meta name="description" content="这两天一直在学习vue+webpack搭建项目,看了很多篇相关的教程。主要遇到的问题就是webpack配置，但通过这两天的学习发现webpack也没有那么难懂。把每个一个参数的意思搞明白就大致知道怎么配置一个wepback.config.js。这里列几个webpack的入门链接：
+<meta name="description" content="现在还讲jquery是不是很out了，今天要讲讲jquery的off()造的坑。生活中我们经常要用on()绑定很多click事件，如果一个页面有很多的需要on的对象，那可像而知要注册多少事件。性能啊～～～
+于是我们都是给某个顶级元素绑定一个on例如下面
 
-
-webpack 入门
-入门Webpack，看这篇就够了
-webpack入坑之旅（一）不是开始的开始
-Webpac">
+12345$(&apos;#box&apos;)  .on(&apos;click&apos;, &apos;.btn&apos;, function(e)&amp;#123;    var target =">
 <meta property="og:type" content="article">
-<meta property="og:title" content="快速搭建一个webpack+vue项目">
-<meta property="og:url" content="https://zhangfu-git.github.io/2016/08/18/快速搭建webpack-vue项目/index.html">
+<meta property="og:title" content="jquery中使用off()的坑">
+<meta property="og:url" content="https://zhangfu-git.github.io/2016/10/14/2016-10-14/index.html">
 <meta property="og:site_name" content="粪兜青年">
-<meta property="og:description" content="这两天一直在学习vue+webpack搭建项目,看了很多篇相关的教程。主要遇到的问题就是webpack配置，但通过这两天的学习发现webpack也没有那么难懂。把每个一个参数的意思搞明白就大致知道怎么配置一个wepback.config.js。这里列几个webpack的入门链接：
+<meta property="og:description" content="现在还讲jquery是不是很out了，今天要讲讲jquery的off()造的坑。生活中我们经常要用on()绑定很多click事件，如果一个页面有很多的需要on的对象，那可像而知要注册多少事件。性能啊～～～
+于是我们都是给某个顶级元素绑定一个on例如下面
 
-
-webpack 入门
-入门Webpack，看这篇就够了
-webpack入坑之旅（一）不是开始的开始
-Webpac">
-<meta property="og:updated_time" content="2016-08-18T08:06:25.767Z">
+12345$(&apos;#box&apos;)  .on(&apos;click&apos;, &apos;.btn&apos;, function(e)&amp;#123;    var target =">
+<meta property="og:updated_time" content="2016-10-13T16:23:37.405Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="快速搭建一个webpack+vue项目">
-<meta name="twitter:description" content="这两天一直在学习vue+webpack搭建项目,看了很多篇相关的教程。主要遇到的问题就是webpack配置，但通过这两天的学习发现webpack也没有那么难懂。把每个一个参数的意思搞明白就大致知道怎么配置一个wepback.config.js。这里列几个webpack的入门链接：
+<meta name="twitter:title" content="jquery中使用off()的坑">
+<meta name="twitter:description" content="现在还讲jquery是不是很out了，今天要讲讲jquery的off()造的坑。生活中我们经常要用on()绑定很多click事件，如果一个页面有很多的需要on的对象，那可像而知要注册多少事件。性能啊～～～
+于是我们都是给某个顶级元素绑定一个on例如下面
 
-
-webpack 入门
-入门Webpack，看这篇就够了
-webpack入坑之旅（一）不是开始的开始
-Webpac">
+12345$(&apos;#box&apos;)  .on(&apos;click&apos;, &apos;.btn&apos;, function(e)&amp;#123;    var target =">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -74,7 +65,7 @@ Webpac">
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>快速搭建一个webpack+vue项目 | 粪兜青年</title>
+<title>jquery中使用off()的坑 | 粪兜青年</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +259,11 @@ Webpac">
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-快速搭建webpack-vue项目" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2016-10-14" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/18/快速搭建webpack-vue项目/" class="article-date">
-      <time datetime="2016-08-18T07:14:42.000Z" itemprop="datePublished">2016-08-18</time>
+      <a href="/2016/10/14/2016-10-14/" class="article-date">
+      <time datetime="2016-10-13T16:06:00.000Z" itemprop="datePublished">2016-10-14</time>
 </a>
 
 
@@ -287,7 +278,7 @@ Webpac">
         
   
     <h1 class="article-title" itemprop="name">
-      快速搭建一个webpack+vue项目
+      jquery中使用off()的坑
     </h1>
   
 
@@ -298,7 +289,7 @@ Webpac">
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/坑/">坑</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -309,19 +300,17 @@ Webpac">
       
           
         <blockquote>
-<p>这两天一直在学习vue+webpack搭建项目,看了很多篇相关的教程。主要遇到的问题就是webpack配置，但通过这两天的学习发现webpack也没有那么难懂。把每个一个参数的意思搞明白就大致知道怎么配置一个wepback.config.js。这里列几个webpack的入门链接：</p>
+<p>现在还讲jquery是不是很out了，今天要讲讲jquery的off()造的坑。生活中我们经常要用on()绑定很多click事件，如果一个页面有很多的需要on的对象，那可像而知要注册多少事件。性能啊～～～</p>
+<p>于是我们都是给某个顶级元素绑定一个on例如下面</p>
 </blockquote>
-<ul>
-<li><a href="http://www.jianshu.com/p/f890cbfcb11b" target="_blank" rel="external">webpack 入门</a></li>
-<li><a href="http://www.jianshu.com/p/42e11515c10f" target="_blank" rel="external">入门Webpack，看这篇就够了</a></li>
-<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/" target="_blank" rel="external">webpack入坑之旅（一）不是开始的开始</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/20367175" target="_blank" rel="external">Webpack傻瓜式指南（一）</a><h6 id="像我一样英文水平不好的同学可以看看这些文章，可以很好的了解webpack-关于vue-webpack的入门这里也推荐几个比较好的链接："><a href="#像我一样英文水平不好的同学可以看看这些文章，可以很好的了解webpack-关于vue-webpack的入门这里也推荐几个比较好的链接：" class="headerlink" title="像我一样英文水平不好的同学可以看看这些文章，可以很好的了解webpack,关于vue + webpack的入门这里也推荐几个比较好的链接："></a>像我一样英文水平不好的同学可以看看这些文章，可以很好的了解webpack,关于vue + webpack的入门这里也推荐几个比较好的链接：</h6></li>
-<li><a href="https://segmentfault.com/a/1190000005614864" target="_blank" rel="external">webpack+vue起步</a></li>
-<li><p><a href="http://www.jianshu.com/p/877f701f0ec0" target="_blank" rel="external">Vue 入门系列之手把手教你搭Webpack</a></p>
-<h6 id="标题-快速的搭建一个webpack-vue那这里就要讲讲如何快速的代码了。有个搭手架交vue-cli-安装了她我们就可以用一条命令快速搭建一个webpack-vue应用。"><a href="#标题-快速的搭建一个webpack-vue那这里就要讲讲如何快速的代码了。有个搭手架交vue-cli-安装了她我们就可以用一条命令快速搭建一个webpack-vue应用。" class="headerlink" title="标题: 快速的搭建一个webpack+vue那这里就要讲讲如何快速的代码了。有个搭手架交vue-cli,安装了她我们就可以用一条命令快速搭建一个webpack+vue应用。"></a>标题: <code>快速的搭建一个webpack+vue</code>那这里就要讲讲如何快速的代码了。有个搭手架交<a href="https://github.com/vuejs/vue-cli" target="_blank" rel="external">vue-cli</a>,安装了她我们就可以用一条命令快速搭建一个webpack+vue应用。</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">npm install -g vue-cli              <span class="comment">//全局安装vue-cli</span></div><div class="line"></div><div class="line">vue init webpack-simple my-vue      <span class="comment">//在你的目录下运行这个就可以快速搭建一个webpack+vue项目</span></div><div class="line"></div><div class="line">npm install                <span class="comment">//安装node_modules依赖</span></div><div class="line"></div><div class="line">npm run dev               <span class="comment">//运行webpack ，直接访问localhost:8080就可以看到搭建好的项目是不是很快</span></div></pre></td></tr></table></figure>
-<h6 id="上面的webpack-simple是类型，搭建一个简单应用。她还有其他三种类型："><a href="#上面的webpack-simple是类型，搭建一个简单应用。她还有其他三种类型：" class="headerlink" title="上面的webpack-simple是类型，搭建一个简单应用。她还有其他三种类型："></a>上面的webpack-simple是类型，搭建一个简单应用。她还有其他三种类型：</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">webpack         <span class="comment">//功能比较全的项目，包括热更新，css提取，单元测试</span></div><div class="line">browserify      <span class="comment">//和上面一样，就是创建一个browserify</span></div><div class="line">browserify-simple</div><div class="line">simple         <span class="comment">//最简单的单一的vue文件</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#box'</span>)</div><div class="line">  .on(<span class="string">'click'</span>, <span class="string">'.btn'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> target = e.target;</div><div class="line">  ...............</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>我们经常会用这样方式给一个jquery对象绑定一个click事件，为了避免反复的注册click事件有时我们就用上off</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#box'</span>)</div><div class="line">  .off(<span class="string">'click'</span>)</div><div class="line">  .on(<span class="string">'click'</span>, <span class="string">'.btn'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> target = e.target;</div><div class="line">  ...............</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>最近遇到的一个问题，有两个组件同样在一个样式上绑定了off().on()。一个操作完操作另一个组件尴尬了没反应了。click不起做作用了，off()把$(‘#box’)上的所有click都给注销了。所以使用off的时候需谨慎！！！！</p>
+</blockquote>
 
       
     </div>
@@ -333,16 +322,10 @@ Webpac">
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/08/19/2016-8-19/">
-                    《javascript高级程序设计》笔记06(函数表达式)
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/08/13/2016-8-13-1/">
-                    javascript &quot;RegExp类型&quot;
+                <a href="/2016/10/08/2016-10-8/">
+                    vue.js 1 升级到 vue.js 2.0.1 练习遇到的报错
                 </a>
             </div>
         
@@ -354,7 +337,7 @@ Webpac">
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#像我一样英文水平不好的同学可以看看这些文章，可以很好的了解webpack-关于vue-webpack的入门这里也推荐几个比较好的链接："><span class="toc-number">1.</span> <span class="toc-text">像我一样英文水平不好的同学可以看看这些文章，可以很好的了解webpack,关于vue + webpack的入门这里也推荐几个比较好的链接：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#标题-快速的搭建一个webpack-vue那这里就要讲讲如何快速的代码了。有个搭手架交vue-cli-安装了她我们就可以用一条命令快速搭建一个webpack-vue应用。"><span class="toc-number">2.</span> <span class="toc-text">标题: 快速的搭建一个webpack+vue那这里就要讲讲如何快速的代码了。有个搭手架交vue-cli,安装了她我们就可以用一条命令快速搭建一个webpack+vue应用。</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#上面的webpack-simple是类型，搭建一个简单应用。她还有其他三种类型："><span class="toc-number">3.</span> <span class="toc-text">上面的webpack-simple是类型，搭建一个简单应用。她还有其他三种类型：</span></a></li></ol>
+            
         
     </div>
     <style>
@@ -390,7 +373,7 @@ Webpac">
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"快速搭建一个webpack+vue项目　| 粪兜青年　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"jquery中使用off()的坑　| 粪兜青年　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -406,7 +389,7 @@ Webpac">
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/08/18/快速搭建webpack-vue项目/" data-title="快速搭建一个webpack+vue项目" data-url="https://zhangfu-git.github.io/2016/08/18/快速搭建webpack-vue项目/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/14/2016-10-14/" data-title="jquery中使用off()的坑" data-url="https://zhangfu-git.github.io/2016/10/14/2016-10-14/"></div>
     <script>
         var duoshuoQuery = {short_name:"zhangfu"};
         var loadComment = function(){
@@ -419,7 +402,7 @@ Webpac">
         
             // Add comment count
             $(function(){ 
-                var jsonUrl = "http://api.duoshuo.com/threads/counts.jsonp?short_name=zhangfu&threads=2016/08/18/快速搭建webpack-vue项目/&callback=?";
+                var jsonUrl = "http://api.duoshuo.com/threads/counts.jsonp?short_name=zhangfu&threads=2016/10/14/2016-10-14/&callback=?";
                 $.getJSON(jsonUrl, function(result){
                     $.each(result.response, function(i, field){
                         var value = field.comments;
@@ -466,15 +449,13 @@ Webpac">
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/08/19/2016-8-19/" title="上一篇: 《javascript高级程序设计》笔记06(函数表达式)">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/08/13/2016-8-13-1/" title="下一篇: javascript &quot;RegExp类型&quot;">
+            <a href="/2016/10/08/2016-10-8/" title="下一篇: vue.js 1 升级到 vue.js 2.0.1 练习遇到的报错">
                 <i class="fa fa-angle-right"></i>
             </a>
         

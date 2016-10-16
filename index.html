@@ -183,7 +183,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-笔记/">javascript; 笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript高级设计总结/">javascript高级设计总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码片段/">代码片段</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录/">记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-笔记/">javascript; 笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript高级设计总结/">javascript高级设计总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码片段/">代码片段</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录/">记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
                     </div>
                 </section>
                 
@@ -255,6 +255,72 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-2016-10-16" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/16/2016-10-16/" class="article-date">
+      <time datetime="2016-10-16T15:28:00.000Z" itemprop="datePublished">2016-10-16</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/16/2016-10-16/">关于React的异步请求</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>今天在练习react异步数据交互，看到网上很多入门案例都是用jquery的ajax,有点忘了用react的初心又用上jquery库。于是就自己动手封装一个：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line">const server = &#123;</div><div class="line">  createXHR: function()&#123;</div><div class="line">    if(typeof XMLHttpRequest != &apos;undefined&apos;)&#123;</div><div class="line">      return new XMLHttpRequest();</div><div class="line">    &#125;else if(typeof ActiveXObject != &apos;undefined&apos;)&#123;</div><div class="line">      if(typeof arguments.callee.activeXString != &apos;string&apos;)&#123;</div><div class="line">        var version = [ &quot;MSXML2.XMLHttp.6.0&quot;, &quot;MSXML2.XMLHttp.3.0&quot;, &quot;MSXML2.XMLHttp&quot;],</div><div class="line">            i, len;</div><div class="line">        for(i = 0, len = version.length; i &lt; len; i++)&#123;</div><div class="line">          try &#123;</div><div class="line">            new ActiveXObject(version[i]);</div><div class="line">            arguments.callee.activeXString = version[i];</div><div class="line">            break;</div><div class="line">          &#125; catch(ex)&#123;</div><div class="line">            //</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">      return new ActiveXObject(arguments.callee.activeXString);</div><div class="line">    &#125;else&#123;</div><div class="line">      throw new Error(&apos;No XHR object available.&apos;);</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  ajaxRequest: function(args)&#123;</div><div class="line"></div><div class="line">    var option  = &#123;</div><div class="line">      url: args.url,</div><div class="line">      sendBeforeFn: args.sendBefore,</div><div class="line">      successFn: args.success,</div><div class="line">      errorFn: args.error,</div><div class="line">      data: args.data || null,</div><div class="line">      method: args.method || &apos;get&apos;,</div><div class="line">      isAys: args.isAys || true</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    var me = server;</div><div class="line">    var xmlhttp = me.createXHR();</div><div class="line">    xmlhttp.onreadystatechange = function()&#123;</div><div class="line">      if(xmlhttp.readyState == 2)&#123;</div><div class="line">        if(typeof option.sendBeforeFn === &apos;function&apos;)&#123;</div><div class="line">          option.sendBeforeFn();</div><div class="line">        &#125;</div><div class="line">      &#125;else if(xmlhttp.readyState == 4)&#123;</div><div class="line">        if((xmlhttp.status &gt;= 200 &amp;&amp; xmlhttp.status &lt; 300) || xmlhttp.status == 304)&#123;</div><div class="line">          option.successFn(xmlhttp.responseText);</div><div class="line">        &#125;else&#123;</div><div class="line">          option.errorFn(xmlhttp.status);</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if(option.method === &apos;get&apos; &amp;&amp; option.data)&#123;</div><div class="line">      option.url = option.url + &apos;?&apos; + me.getUrlDate(option);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    xmlhttp.open(option.method, option.url, option.isAys);</div><div class="line"></div><div class="line">    if(option.method === &apos;post&apos; &amp;&amp; option.data)&#123;</div><div class="line">      xmlhttp.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);</div><div class="line"></div><div class="line">      var resultString = me.getUrlDate(option);</div><div class="line">      xmlhttp.send(resultString)</div><div class="line">    &#125;else &#123;</div><div class="line">      xmlhttp.send(null);</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  getUrlDate: function(option)&#123;</div><div class="line">    var resultArray = [],</div><div class="line">        resultString = &quot;&quot;;</div><div class="line">    for(var i in option.data)&#123;</div><div class="line">      resultArray.push(i + &apos;=&apos; + option.data[i]);</div><div class="line">    &#125;</div><div class="line">    resultArray.forEach(function(item)&#123;</div><div class="line">      resultString += item + &apos;&amp;&apos;;</div><div class="line">    &#125;);</div><div class="line">    return resultString.slice(0, resultString.length -1 );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">export default server.ajaxRequest</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这只有简单的get和post请求，封装过程中遇到比较麻烦的事情是带上参数。目前这个对象的post请求再多层嵌套还是有问题，还有没有进行URI编码。不过基本的已经可以用了(待改进)</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-2016-10-15" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -897,94 +963,6 @@
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2016-8-20" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/20/2016-8-20/" class="article-date">
-      <time datetime="2016-08-20T01:57:04.000Z" itemprop="datePublished">2016-08-20</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/20/2016-8-20/">《javascript高级程序设计》笔记07</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <blockquote>
-<p>07笔记主要记录了函数的递归、闭包、闭包与变量、还有就是this对象还有比包造成的内存泄漏</p>
-</blockquote>
-<h5 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h5><blockquote>
-<p>闭包一直是javascript里面人们最爱谈的一个话题，那闭包到底是指什么能？书上解释到：闭包是指有权访问另一个函数作用域中的变量的函数(<code>js中是有函数作用域的，就是函数外面访问不到函数里面定义的变量</code>)，</p>
-</blockquote>
-<ul>
-<li>那长啥样呢？其实就是一个函数内部创建了另一个函数。</li>
-<li>那它有什么用呢？一个是读取函数内部的变量，另一个是可以把局部变量保存在内存中<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> time = <span class="number">0</span>;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> time ++;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> myAdd = count();</div><div class="line">myAdd(); <span class="comment">//0</span></div><div class="line">myAdd(); <span class="comment">//1</span></div><div class="line">myAdd(); <span class="comment">//2</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h6 id="我们会看到每次运行都在上一次的基础上进行累加，我们用闭包把time保存在了内存中-其实count的执行环境作用域是销毁掉的，但它的活动对象仍然会留在内存中。直到myAdd销毁后才，count的活动对象才会被销毁。"><a href="#我们会看到每次运行都在上一次的基础上进行累加，我们用闭包把time保存在了内存中-其实count的执行环境作用域是销毁掉的，但它的活动对象仍然会留在内存中。直到myAdd销毁后才，count的活动对象才会被销毁。" class="headerlink" title="我们会看到每次运行都在上一次的基础上进行累加，我们用闭包把time保存在了内存中.其实count的执行环境作用域是销毁掉的，但它的活动对象仍然会留在内存中。直到myAdd销毁后才，count的活动对象才会被销毁。"></a>我们会看到每次运行都在上一次的基础上进行累加，我们用闭包把time保存在了内存中.其实count的执行环境作用域是销毁掉的，但它的活动对象仍然会留在内存中。直到myAdd销毁后才，count的活动对象才会被销毁。</h6><h5 id="闭包与变量"><a href="#闭包与变量" class="headerlink" title="闭包与变量"></a>闭包与变量</h5><blockquote>
-<p>由于作用域链的这种配置机制引发了一个副作用，闭包只能取得包含函数中任何函数的最后一个值。举个我们面试会经常遇到的一个问题：</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunction</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</div><div class="line">    result[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> i;</div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> myArrayFn = createFunction();</div><div class="line">myArrayFn[<span class="number">0</span>]() <span class="comment">// 10</span></div><div class="line">myArrayFn[<span class="number">1</span>]() <span class="comment">// 10</span></div></pre></td></tr></table></figure>
-<p>可能运行结果让大声喊Why???为什么是10,而不是0和1.不过仔细一看确实是10,我们在for里面只是声明了函数表达式，而这在调用那个匿名函数的时候那时候i已经是10了。那如何才能等到我们想要的结果呢？看下面<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunction</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</div><div class="line">    result[i] = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">      <span class="comment">//var currentIndex = num;</span></div><div class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> num;</div><div class="line">        <span class="comment">//return currentIndex;</span></div><div class="line">      &#125;</div><div class="line">    &#125;(i);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> myArrayFn = createFunction();</div><div class="line">myArrayFn[<span class="number">0</span>]();  <span class="comment">//0</span></div><div class="line">myArrayFn[<span class="number">1</span>]();  <span class="comment">//1</span></div></pre></td></tr></table></figure></p>
-<p>通过重写上面的代码，我们就可以实现返回各自的下标了。这一次我们不是直接返回闭包，而是定义了一个函数并立即执行它，参入i，然后再创建一个匿名函数并返回。这样我们就返回了一个初始化一个num为当时i值的匿名函数。这样执行的时候就返回相对于的值</p>
-<h5 id="this对象"><a href="#this对象" class="headerlink" title="this对象"></a>this对象</h5><blockquote>
-<p>this是运行时基于函数执行环境绑定的。所以this的对象是会变的，这也算一个坑吧。我们可以拿一个经典的例子做个说明：</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'小胖子'</span>;</div><div class="line"><span class="comment">//第一种</span></div><div class="line"><span class="keyword">var</span> object = &#123;</div><div class="line">  name : <span class="string">'陈久义'</span>,</div><div class="line">  getName : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">object.getName()();  <span class="comment">//'小胖子'</span></div><div class="line"><span class="comment">//  第二种</span></div><div class="line"><span class="keyword">var</span> object = &#123;</div><div class="line">  name : <span class="string">'陈久义'</span>,</div><div class="line">  getName : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> that.name;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">object.getName();   <span class="comment">//'陈久义'</span></div></pre></td></tr></table></figure>
-<h6 id="通过上面，我们会看到同样是获取this-name的值，但结果是不同的。为什么呢？首先函数调用时会自动取得this和arguments，内部函数在搜索这个两个变量的时，只搜索到其活动对象为止，"><a href="#通过上面，我们会看到同样是获取this-name的值，但结果是不同的。为什么呢？首先函数调用时会自动取得this和arguments，内部函数在搜索这个两个变量的时，只搜索到其活动对象为止，" class="headerlink" title="通过上面，我们会看到同样是获取this.name的值，但结果是不同的。为什么呢？首先函数调用时会自动取得this和arguments，内部函数在搜索这个两个变量的时，只搜索到其活动对象为止，"></a>通过上面，我们会看到同样是获取this.name的值，但结果是不同的。为什么呢？首先函数调用时会自动取得this和arguments，内部函数在搜索这个两个变量的时，只搜索到其活动对象为止，</h6><ul>
-<li>在第一种情况下： 返回了function(){ return this.name },执行这个匿名函数是在全局的执行环境下的。所以this指向window，所有结果是’小胖子’</li>
-<li>第二种情况：同样是返回匿名函数，但我们把外部作用域中的this(object这个对象)保存在闭包可以访问到的变量的。这样就可以让闭包访问到该对象下的name了,所有返回了’陈久义’</li>
-</ul>
-<h5 id="内存泄露"><a href="#内存泄露" class="headerlink" title="内存泄露"></a>内存泄露</h5><blockquote>
-<p>闭包是很容易造成内存泄露的，已经都保存在内存中。既然回收机制没有把它回收了，拿就需要我们手动的回收它。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">myArrayFn = <span class="literal">null</span>; <span class="comment">//手动取消引用</span></div><div class="line"><span class="comment">//书上还有一个解除DOM引用，确保正常回收的例子</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">assignHandler</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'someElement'</span>);</div><div class="line">  <span class="keyword">var</span> id = element.id;</div><div class="line">  el.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(id);   <span class="comment">//在没有定义id时候，我们会用alert(el.id)</span></div><div class="line">  &#125;</div><div class="line">  el = <span class="literal">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h6 id="通过把element-id赋id，然后接触el的引用来减少其引用数，确保正常回收占用的内存。"><a href="#通过把element-id赋id，然后接触el的引用来减少其引用数，确保正常回收占用的内存。" class="headerlink" title="通过把element.id赋id，然后接触el的引用来减少其引用数，确保正常回收占用的内存。"></a>通过把element.id赋id，然后接触el的引用来减少其引用数，确保正常回收占用的内存。</h6>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
     </div>
 
       

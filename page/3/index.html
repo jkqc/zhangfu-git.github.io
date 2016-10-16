@@ -183,7 +183,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-笔记/">javascript; 笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript高级设计总结/">javascript高级设计总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码片段/">代码片段</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录/">记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-笔记/">javascript; 笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript高级设计总结/">javascript高级设计总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码片段/">代码片段</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录/">记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
                     </div>
                 </section>
                 
@@ -255,6 +255,169 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-讲讲写一个简单的虚拟键盘的难点" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/21/讲讲写一个简单的虚拟键盘的难点/" class="article-date">
+      <time datetime="2016-07-21T15:13:16.000Z" itemprop="datePublished">2016-07-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/21/讲讲写一个简单的虚拟键盘的难点/">[jquery写一个简单的虚拟键盘核心代码]</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>最近业务需要一个虚拟键盘，本来是用jquery的Keyboard插件的，由于某些原因需要自己实现一个简单的虚拟键盘。需求的键盘很键盘就是小写字母、数字、点、删除按钮、确认按钮、取消按钮。刚开始的想想实现起来挺简单的，为了渲染更快直接把键盘写成html不用js去动态生成按钮，每个按钮写上想对应的data-id，基本排版就这样。输入iniput值不用多说就是点击获取当前点击对象的data-id让后进行字符操作赋值，然而看似简单的小键盘实现起来还是要花点心思，基本的思路就是获取目前点击的是什么，然后获取input的值，再获取input的光标位置，进行字符串的拼接最后复制回去。不过这里要<code>注意一点input类型是number是无法获取光标的位置的</code>，所有对number类型的input插入数据只能在最后面插入。核心代码段如下：</p>
+</blockquote>
+<ul>
+<li><p>input获取光标位置</p>
+<pre><code>//$node 为input的jquery对象一下雷同
+function getCursorPosition($node){
+  log.debug(&apos;########keypadComponent: getCursorPosition %s#####&apos;)
+  var CaretPos = 0;
+  var objId = $node.get(0);
+  var inputType = $node.attr(&apos;type&apos;);
+  if(inputType === &quot;number&quot;){
+    CaretPos = $node.val().length;
+  }else{
+    if (document.selection) {  // IE Support
+      objId.focus();
+      var Sel = document.selection.createRange();
+      Sel.moveStart(&apos;character&apos;, -objId.value.length);
+      CaretPos = Sel.text.length;
+    }else if(objId.selectionStart || objId.selectionStart == &apos;0&apos;){ // Firefox support
+      CaretPos = objId.selectionStart;
+    }
+  }
+  return CaretPos;
+}
+</code></pre></li>
+<li><p>添加或删除光标位置的改变</p>
+<pre><code>//CaretPos获取到的光标位置，isAdd判断是添加还是删除字符
+function setCursorPosition($node, CaretPos, isAdd){
+  log.debug(&apos;########keypadComponent: setCursorPosition %s#####&apos;)
+  var isAdd = isAdd &amp;&amp; true || false;
+  var inputType = $node.attr(&apos;type&apos;);
+  if(inputType === &quot;number&quot;){
+    return;
+  }else{
+    if(isAdd){
+      var objId = $node.get(0);
+      if(objId.setSelectionRange){
+        objId.focus();
+        objId.setSelectionRange(CaretPos + 1, CaretPos + 1);
+      }else if (objId.createTextRange) {
+        var range = objId.createTextRange();
+        range.collapse(true);
+        range.moveEnd(&apos;character&apos;, CaretPos + 1);
+        range.moveStart(&apos;character&apos;, CaretPos + 1);
+        range.select();
+      }
+    }else{
+      var objId = $node.get(0);
+      if(objId.setSelectionRange){
+        objId.focus();
+        objId.setSelectionRange(CaretPos - 1, CaretPos - 1);
+      }else if (objId.createTextRange) {
+        var range = objId.createTextRange();
+        range.collapse(true);
+        range.moveEnd(&apos;character&apos;, CaretPos - 1);
+        range.moveStart(&apos;character&apos;, CaretPos - 1);
+        range.select();
+      }
+    }
+  }
+}
+</code></pre></li>
+<li><p>文字的插入</p>
+<pre><code>//$node 是input的jquery对象 keyStr是虚拟键盘获取到的data-id
+function inserTexts($node, keyStr){
+  log.debug(&apos;########keypadComponent: inserText %s#####&apos;);
+    CaretPos = getCursorPosition($node),
+    inputStr = $node.val(),
+    objId = $node.get(0),
+    inputType = $node.attr(&apos;type&apos;);
+  log.debug(inputType)
+  if(inputType !== &quot;number&quot;){
+    if(CaretPos !== inputStr.length - 1){
+      var startText = inputStr.substring(0, CaretPos);
+      var endText = inputStr.substring(objId.selectionEnd);
+      var newStr = startText + keyStr + endText;
+      $node.val(newStr);
+    }else{
+      $node.val(inputStr + keyStr);
+    }
+  }else{
+    $node.val(Number(inputStr + keyStr));
+  }
+  setCursorPosition($node, CaretPos, true);
+
+}
+</code></pre></li>
+<li>删除字符<pre><code>//currInputValue 为当前input的value值
+function removeTexts($node, currInputValue){
+  log.debug(&apos;########keypadComponent: removeText %s#####&apos;)
+  var CaretPos = getCursorPosition($node);
+  $node.val(currInputValue &amp;&amp; currInputValue.substring(0, CaretPos - 1 ) + currInputValue.substring(CaretPos, currInputValue.length));
+  setCursorPosition($node, CaretPos, false);
+}
+</code></pre><h6 id="以上是整个键盘比较核心的代码，主要的注意点就是input类型为数值型的时候，主要的陌生点就是光标的获取和设置"><a href="#以上是整个键盘比较核心的代码，主要的注意点就是input类型为数值型的时候，主要的陌生点就是光标的获取和设置" class="headerlink" title="以上是整个键盘比较核心的代码，主要的注意点就是input类型为数值型的时候，主要的陌生点就是光标的获取和设置"></a>以上是整个键盘比较核心的代码，主要的注意点就是input类型为数值型的时候，主要的陌生点就是光标的获取和设置</h6></li>
+</ul>
+<hr>
+<h5 id="这里要提到键盘的一个体验性关闭功能的实现，当时有这样一个需求就是点击键盘外的区域隐藏键盘，但点击input不隐藏键盘。刚开始想到的是给键盘外加一个透明的全屏层把点击事件绑定给它，但发现这样没办法实现点击input直接获取光标而且键盘还在的需求。然后又想到拿input的focus事件的注意让它获取焦点显示，让它失去焦点的时候隐藏键盘，但发现不可行点击虚拟键盘就没了。"><a href="#这里要提到键盘的一个体验性关闭功能的实现，当时有这样一个需求就是点击键盘外的区域隐藏键盘，但点击input不隐藏键盘。刚开始想到的是给键盘外加一个透明的全屏层把点击事件绑定给它，但发现这样没办法实现点击input直接获取光标而且键盘还在的需求。然后又想到拿input的focus事件的注意让它获取焦点显示，让它失去焦点的时候隐藏键盘，但发现不可行点击虚拟键盘就没了。" class="headerlink" title="这里要提到键盘的一个体验性关闭功能的实现，当时有这样一个需求就是点击键盘外的区域隐藏键盘，但点击input不隐藏键盘。刚开始想到的是给键盘外加一个透明的全屏层把点击事件绑定给它，但发现这样没办法实现点击input直接获取光标而且键盘还在的需求。然后又想到拿input的focus事件的注意让它获取焦点显示，让它失去焦点的时候隐藏键盘，但发现不可行点击虚拟键盘就没了。"></a>这里要提到键盘的一个体验性关闭功能的实现，当时有这样一个需求就是点击键盘外的区域隐藏键盘，但点击input不隐藏键盘。刚开始想到的是给键盘外加一个透明的全屏层把点击事件绑定给它，但发现这样没办法实现点击input直接获取光标而且键盘还在的需求。然后又想到拿input的focus事件的注意让它获取焦点显示，让它失去焦点的时候隐藏键盘，但发现不可行点击虚拟键盘就没了。</h5><h5 id="最后通过一个isFocus标识来实现需要的效果："><a href="#最后通过一个isFocus标识来实现需要的效果：" class="headerlink" title="最后通过一个isFocus标识来实现需要的效果："></a>最后通过一个isFocus标识来实现需要的效果：</h5><pre><code>$(document).unbind(&apos;click&apos;).bind(&apos;click&apos;, function(e){
+
+  if(!isFocus){
+    关闭键盘
+  }
+});
+</code></pre><h5 id="监听document的点击事件，判断是否关闭键盘-在点击input和虚拟键盘的时候给isFocus赋值true-这样就实现了点击键盘和input以外的区域实现关闭"><a href="#监听document的点击事件，判断是否关闭键盘-在点击input和虚拟键盘的时候给isFocus赋值true-这样就实现了点击键盘和input以外的区域实现关闭" class="headerlink" title="监听document的点击事件，判断是否关闭键盘(在点击input和虚拟键盘的时候给isFocus赋值true).这样就实现了点击键盘和input以外的区域实现关闭"></a>监听document的点击事件，判断是否关闭键盘(在点击input和虚拟键盘的时候给isFocus赋值true).这样就实现了点击键盘和input以外的区域实现关闭</h5><h3 id="以上就是实现一个简单键盘思路和注意点。"><a href="#以上就是实现一个简单键盘思路和注意点。" class="headerlink" title="以上就是实现一个简单键盘思路和注意点。"></a>以上就是实现一个简单键盘思路和注意点。</h3>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Ubuntu多窗口终端" class="article article-type-post" itemscope itemprop="blogPost">
   

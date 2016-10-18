@@ -183,7 +183,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-笔记/">javascript; 笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript高级设计总结/">javascript高级设计总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码片段/">代码片段</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录/">记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-笔记/">javascript; 笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript高级设计总结/">javascript高级设计总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码片段/">代码片段</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录/">记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
                     </div>
                 </section>
                 
@@ -255,6 +255,85 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-2016-8-21" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/21/2016-8-21/" class="article-date">
+      <time datetime="2016-08-21T09:53:42.000Z" itemprop="datePublished">2016-08-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/21/2016-8-21/">vue+webpack入门学习案例</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>看了vue的官方教材，总的来说还是比较好入门,今天自己也写一个月账单记录的vue+webpack小案例练练手，界面都是组件化的。具体如下图:</p>
+</blockquote>
+<p><img src="http://ww2.sinaimg.cn/mw690/9ea24dfdgw1f71j7wyv5gj20zw084q4f.jpg" alt="img"></p>
+<blockquote>
+<p>界面是用了boostrap的样式，存储是用浏览器的localStorage。</p>
+</blockquote>
+<h6 id="创建目录，用vue-cli创建一个简单的webpack-vue目录。我做了一点的修改，具体如下："><a href="#创建目录，用vue-cli创建一个简单的webpack-vue目录。我做了一点的修改，具体如下：" class="headerlink" title="创建目录，用vue-cli创建一个简单的webpack+vue目录。我做了一点的修改，具体如下："></a>创建目录，用vue-cli创建一个简单的webpack+vue目录。我做了一点的修改，具体如下：</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">my-vue</div><div class="line">  -src</div><div class="line">    --components       <span class="comment">//用到的组件</span></div><div class="line">      ---App.vue       <span class="comment">//父组件，下面那些都是子组件</span></div><div class="line">      ---form-add.vue</div><div class="line">      ---store.js</div><div class="line">      ---table-list.vue</div><div class="line">    --main.js</div><div class="line">  -.babelrc</div><div class="line">  -.gitignore</div><div class="line">  -package.json</div><div class="line">  -webpacp.config.js</div></pre></td></tr></table></figure>
+<h6 id="这里具体的webpack配置就不详细说明了，可以到我的github库上看下webpack-config-js和package-json"><a href="#这里具体的webpack配置就不详细说明了，可以到我的github库上看下webpack-config-js和package-json" class="headerlink" title="这里具体的webpack配置就不详细说明了，可以到我的github库上看下webpack.config.js和package.json"></a>这里具体的webpack配置就不详细说明了，可以到我的<a href="https://github.com/zhangfu-git/vue-webpack" target="_blank" rel="external">github库</a>上看下webpack.config.js和package.json</h6><h5 id="index-html-这是我们要访问的页面"><a href="#index-html-这是我们要访问的页面" class="headerlink" title="index.html(这是我们要访问的页面)"></a>index.html(这是我们要访问的页面)</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Vue Chat<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"chat"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"dist/build.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="main-js-webpack入口文件"><a href="#main-js-webpack入口文件" class="headerlink" title="main.js(webpack入口文件)"></a>main.js(webpack入口文件)</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./components/App'</span>    </div><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>                </div><div class="line"></div><div class="line">Vue.config.debug = <span class="literal">true</span>;        </div><div class="line"></div><div class="line"><span class="keyword">new</span> Vue(App);</div></pre></td></tr></table></figure>
+<h5 id="App-vue-整个大组件，又由其他小组件构成"><a href="#App-vue-整个大组件，又由其他小组件构成" class="headerlink" title="App.vue (整个大组件，又由其他小组件构成)"></a>App.vue (整个大组件，又由其他小组件构成)</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">  import store from './store';    //这文件是关于localStorage</div><div class="line">  import formAdd from './form-add';   //这是表单组件，</div><div class="line">  import tableList from './table-list';  //这是展示的列表组件</div><div class="line"></div><div class="line">  export default &#123;</div><div class="line">    el : '#chat',</div><div class="line">    data() &#123;</div><div class="line">      let serverData  = store.fetch();</div><div class="line">      return &#123;</div><div class="line">        recordList: serverData.recordList,</div><div class="line">        serverData: serverData</div><div class="line">      &#125;;</div><div class="line">    &#125;,</div><div class="line">    watch:&#123;             //监测recordList变化时，保存数据到localStorage</div><div class="line">      "recordList" : &#123;</div><div class="line">        deep: true,</div><div class="line">        handler()&#123;</div><div class="line">          store.save(this.serverData);</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    components: &#123;</div><div class="line">      formAdd, tableList   //传入子组件</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;template&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;div class="main"&gt;</div><div class="line">          &lt;div class="col-md-3"&gt;</div><div class="line">            &lt;form-add :record-list="recordList"&gt;&lt;/form-add&gt;</div><div class="line">          &lt;/div&gt;</div><div class="line">          &lt;div class="col-md-9"&gt;</div><div class="line">            &lt;table-list :record-list="recordList"&gt;&lt;/table-list&gt;</div><div class="line">          &lt;/div&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;style lang="less"&gt;</div><div class="line">    #chat &#123;</div><div class="line">        .main &#123;</div><div class="line">            position: relative;</div><div class="line">            overflow: hidden;</div><div class="line">            background-color: #eee;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h5 id="store-js-里面主要是定义数据的获取和保存-。"><a href="#store-js-里面主要是定义数据的获取和保存-。" class="headerlink" title="store.js(里面主要是定义数据的获取和保存)。"></a>store.js(里面主要是定义数据的获取和保存)。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> key = <span class="string">'VUE_RECORD'</span>;</div><div class="line"></div><div class="line"><span class="keyword">if</span>(!localStorage.getItem(key)) &#123;</div><div class="line"></div><div class="line">  <span class="keyword">let</span> data = &#123;</div><div class="line">    <span class="string">"recordList"</span>: []</div><div class="line">  &#125;;</div><div class="line">  localStorage.setItem(key, <span class="built_in">JSON</span>.stringify(data));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  fetch () &#123;</div><div class="line">    <span class="keyword">if</span>(localStorage.getItem(key) === <span class="string">"undefined"</span>)&#123;  <span class="comment">//遇到了返回undefined字符，导致出错。</span></div><div class="line">      <span class="keyword">let</span> data = &#123;</div><div class="line">        <span class="string">"recordList"</span>: []</div><div class="line">      &#125;;</div><div class="line">      localStorage.setItem(key, <span class="built_in">JSON</span>.stringify(data));</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(localStorage.getItem(key));</div><div class="line">  &#125;,</div><div class="line">  save (store) &#123;</div><div class="line">    localStorage.setItem(key, <span class="built_in">JSON</span>.stringify(store));</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="form-add-vue-数据输入保存的组件"><a href="#form-add-vue-数据输入保存的组件" class="headerlink" title="form-add.vue(数据输入保存的组件)"></a>form-add.vue(数据输入保存的组件)</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div class="m-form"&gt;</div><div class="line">    &lt;div class="form-group"&gt;</div><div class="line">      &lt;label for="name"&gt;Name:&lt;/label&gt;</div><div class="line">      &lt;input type="text" class="form-control" v-model="name" id="name" placeholder="小罗"&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class="form-group"&gt;</div><div class="line">      &lt;label for="price"&gt;Price:&lt;/label&gt;</div><div class="line">      &lt;input type="text" class="form-control" v-model="price" placeholder="30￥"&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class="form-group"&gt;</div><div class="line">      &lt;label for="detaile"&gt;Detaile:&lt;/label&gt;</div><div class="line">      &lt;input type="text" v-model="detaile" class="form-control" id="detaile" placeholder="具体消费的项目"&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class="form-group"&gt;</div><div class="line">      &lt;button class="btn btn-success btn-lg btn-block" @click="save"&gt;Save&lt;/button&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">export default &#123;</div><div class="line">  props:["recordList"],</div><div class="line">  data() &#123;</div><div class="line">    return &#123;</div><div class="line">      date: new Date(),</div><div class="line">      name: '',</div><div class="line">      price: '',</div><div class="line">      detaile: ''</div><div class="line">    &#125;;</div><div class="line">  &#125;,</div><div class="line">  computed :&#123;</div><div class="line">    timeFormat()&#123;</div><div class="line">      if(this.date)&#123;</div><div class="line">        let year = this.date.getFullYear(),</div><div class="line">            month = this.date.getMonth(),</div><div class="line">            date = this.date.getDate(),</div><div class="line">            formatDate = year + '年' + month + '月' + date + '日';</div><div class="line">        return formatDate;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    priceFormat()&#123;</div><div class="line">      if(this.price)&#123;</div><div class="line">        let newPrice = Number(this.price);</div><div class="line">        return (newPrice &amp;&amp; newPrice || 0);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    save() &#123;</div><div class="line">      if(this.name.length &amp;&amp; this.price.length &amp;&amp; this.detaile.length)&#123;</div><div class="line">        this.recordList.unshift(&#123;</div><div class="line">          date: this.timeFormat,</div><div class="line">          name: this.name,</div><div class="line">          price: this.priceFormat,</div><div class="line">          detaile: this.detaile</div><div class="line">        &#125;);</div><div class="line">        this.name = '';</div><div class="line">        this.price = '';</div><div class="line">        this.detaile = '';</div><div class="line">      &#125;else&#123;</div><div class="line">        alert('请填写了内容再');</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;style lang="less"&gt;</div><div class="line">  .form&#123;</div><div class="line">    color:red;</div><div class="line">  &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h5 id="table-list-vue-表格列表组件"><a href="#table-list-vue-表格列表组件" class="headerlink" title="table-list.vue(表格列表组件)"></a>table-list.vue(表格列表组件)</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">&lt;template lang="html"&gt;</div><div class="line">  &lt;table class="table table-striped"&gt;</div><div class="line">    &lt;thead&gt;</div><div class="line">      &lt;tr&gt;</div><div class="line">        &lt;th&gt;日期&lt;/th&gt;</div><div class="line">        &lt;th&gt;人物&lt;/th&gt;</div><div class="line">        &lt;th&gt;金额&lt;/th&gt;</div><div class="line">        &lt;th&gt;事迹&lt;/th&gt;</div><div class="line">        &lt;th&gt;</div><div class="line">          其他</div><div class="line">        &lt;/th&gt;</div><div class="line">      &lt;/tr&gt;</div><div class="line">    &lt;/thead&gt;</div><div class="line">    &lt;tbody&gt;</div><div class="line">      &lt;tr v-for="item in recordList"&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;item.date&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;item.name&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;item.price&#125;&#125;￥&lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;item.detaile&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;</div><div class="line">          &lt;button type="button" class="btn btn-danger" @click="remove($index)"&gt;删除&lt;/button&gt;</div><div class="line">        &lt;/td&gt;</div><div class="line">      &lt;/tr&gt;</div><div class="line">    &lt;/tbody&gt;</div><div class="line">    &lt;tfoot&gt;</div><div class="line">      &lt;tr&gt;</div><div class="line">        &lt;td text="total"&gt;合计:&#123;&#123; total &#125;&#125;&lt;/td&gt;</div><div class="line">      &lt;/tr&gt;</div><div class="line">    &lt;/tfoot&gt;</div><div class="line">  &lt;/table&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">export default &#123;</div><div class="line">  props:['recordList'],</div><div class="line">  data() &#123;</div><div class="line">    return &#123;</div><div class="line">      total: 0</div><div class="line">    &#125;;</div><div class="line">  &#125;,</div><div class="line">  watch: &#123;</div><div class="line">    'recordList': function(val, oldVal)&#123;</div><div class="line">      let that = this;</div><div class="line">      let result = 0;</div><div class="line">      val.forEach(function(item)&#123;</div><div class="line">        result += item.price;</div><div class="line">      &#125;);</div><div class="line">      this.total = result;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    remove(index)&#123;</div><div class="line">      this.recordList.splice(index, 1);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">&lt;style lang="less"&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>####以上就是这个寝室消费记录小案例的文件，感觉动手过一遍吧！！！</p>
+<ul>
+<li>参考:<a href="https://segmentfault.com/a/1190000003968020" target="_blank" rel="external">Vue.js 快速入门</a></li>
+<li>参考:<a href="http://cn.vuejs.org/guide/index.html" target="_blank" rel="external">vue官方教程</a></li>
+<li>参考:<a href="https://github.com/Coffcer/vue-chat/tree/gh-pages/src/components" target="_blank" rel="external">vue-chat的一个教程</a></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-2016-8-20" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1035,131 +1114,6 @@ var say = (&apos;hello&apos;, &apos;hi&apos;, &apos;hello hi&apos;);    //say  �
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-笔记/">javascript; 笔记</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-javascript高级程序设计01" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/23/javascript高级程序设计01/" class="article-date">
-      <time datetime="2016-07-23T00:36:51.000Z" itemprop="datePublished">2016-07-23</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/23/javascript高级程序设计01/">[《javascript高级程序设计》笔记01]</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <blockquote>
-<p>一直对js没有基础的全面学习过，接触js没多久就去看jquery用来一直使用jquery。基础性的看过阮老师的<a href="http://javascript.ruanyifeng.com/" target="_blank" rel="external">JavaScript 标准参考教程</a>。后来买了一本javascript语言精粹看了一遍，大致上对js的语言有进一步的认识。现在各种框架层出不穷，但根源都是javascript，所有学好和深入javascript显的更为重要有。最近买了《javascript高级程序设计》这本730页的javascript里的”圣经”,好好啃一遍顺便记录一些笔记。</p>
-<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p>js有5种简单的数据类型： Undefined、Null、Boolean、Number、String;1种复杂的数据类型：object.下面简单介绍每个数据类型的特点。</p>
-</blockquote>
-<ul>
-<li>Undefined类型（这个类型只有一个值undefined）<ol>
-<li><code>没有初始化的变量，它的值就是undefined</code></li>
-<li>我们会用它来检测一个变量是否初始化</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li><p>Null类型(也只有唯一的值Null)</p>
-<ol>
-<li><code>逻辑角度Null的值是表示一个空对象指针</code>（所以typeof null 为’object’ 注意：null == undefined为true (undefined值是派生自null值)）</li>
-<li>null作为一个对象空指标，我们一般会拿它给一个没有初始值的变量</li>
-</ol>
-</li>
-<li><p>Boolean类型</p>
-<ol>
-<li><code>布尔类型有两个值true与false，注意他两是区分大小的。</code></li>
-<li><p>可以说它就是用来判断用的，书上提到：’这true跟false与数值不是一回事，因此true不一定等1,false不一定等于0，为什么这样说呢？看下面：</p>
-<pre><code> false == 0    // true (其实是把0转型了，因该是false == Boolean(0)所有结果为true)
-false === 0   //false  (不是一个类型所有不等)
-</code></pre></li>
-</ol>
-</li>
-<li><p>Number类型</p>
-<ol>
-<li><code>这种类型使用IEEE754格式表示整数和浮点数</code></li>
-<li>number类型里主要提下0.1 + 0.2 结果不为0.3而是0.30000000000000004，主要是浮点数值最高精确是17位小数。而计算会产生舍入的误差所有就为这个值。这是使用IEEE754数值的浮点计算的通病</li>
-<li>还有一个要提的是特殊的NaN:他是一个特殊的数值，这个数值是用于表示一个本来要返回数值操作未返回的情况。<ul>
-<li>一个我不是我的也不是任何人的值 (NaN == NaN 为false)</li>
-<li>判断Nan我们可以用isNaN()函数</li>
-</ul>
-</li>
-</ol>
-</li>
-<li>String类型<ol>
-<li><code>由用单或双引号包围的0～16位Unicode字符组成的字符序列</code></li>
-<li>在某个值转换为字符类型的时候有一个小技巧：<pre><code>typeof(&quot;&quot; + 1)   // String
-</code></pre></li>
-<li>一个值转为字符串我们可以用str.toString(这里可以传入基数)和String(str),(<code>注意:toString()在转化null和undefined的时候会出错，这个时候就要用String()</code>)</li>
-</ol>
-</li>
-<li><p>Object类型</p>
-<ol>
-<li><code>对象是一组数据和功能的集合</code></li>
-<li>Object类型是素有它的实例的基础，object所具有的任何方法和属性也存在更具体的对象中。</li>
-<li><p>Object每个实例都具有如下属性和方法</p>
-<p>（1）、 constructor:保存着用于创建当前对象的函数。如何理解呢！</p>
-<pre><code> var obj = new Object();
-obj.constructor()        //Object()
-</code></pre><p>（2）、hasOwnProperty(propertyName):用于检测给定的属性在当前对象中是否存在（而不是在实例的原型中）,<br>   var zhangfu = {sex: “boy”};<br>   zhangfu.hasOwnProperty(“sex”)   //true<br>   Object.prototype.hasOwnProperty(“sex”)    //false</p>
-<p>(3)、propertyIsEnumerable:用以检测给定属性是否能够使用for-in语句来枚举。</p>
-<p>   var tryzf = [‘zhangfu’];<br>   tryzf.propertyIsEnumerable(0)  //true<br>   tryzf.propertyIsEnumerable(“length”)   //false</p>
-<p>(4)、toLocaleString: 返回字符串，该字符串与执行环境的地区对应</p>
-<pre><code>var date = new Date();
-date.toLocaleString();  
-</code></pre><p>//同样是 7 月 23 日，在美国，toLocaleString 可能会返回 “07/23/2016 01:33:04”，而在欧洲，返回值则可能是 “23/07/2016 01:33:04”</p>
-<p>(5)、toString:上面提到过。</p>
-<p>(6)、valueOf:返回对象的字符串、数字或布尔型。简单的说本来是什么就返回什么值。</p>
-</li>
-</ol>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript高级设计总结/">javascript高级设计总结</a></li></ul>
     </div>
 
       

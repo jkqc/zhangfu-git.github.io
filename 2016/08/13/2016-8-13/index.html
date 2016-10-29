@@ -1,17 +1,86 @@
-<!DOCTYPE html>
-<html lang="zh-Hans">
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
 <head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="format-detection" content="telephone=no" />
-<meta name="author" content="Tryzf" />
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="笔记," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
 
 
 
@@ -47,270 +116,184 @@ Date.parse接收一个表示日期的字符串，然后返回相对应的日期�
 var myDate = new Date(Date.parse(&amp;quot;Aug 13, 2016&amp;quot;));
 //平时我们创建指定日期">
 
-<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-    <link rel="alternate" href="/atom.xml" title="粪兜青年" type="application/atom+xml">
-
-
-
-    <link rel="shortcut icon" href="/favicon.png">
-
-
-
-    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
-
-
-
-    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
-
-
-
-    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
-
-
-<link rel="stylesheet" href="/css/style.css">
-
-
-
-<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-
-
-<title>《javascript高级程序设计》笔记05 | 粪兜青年</title>
-
-<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-
-<script>
-    var yiliaConfig = {
-        fancybox: true,
-        animate: true,
-        isHome: false,
-        isPost: true,
-        isArchive: false,
-        isTag: false,
-        isCategory: false,
-        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
-        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: undefined
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
     }
+  };
 </script>
 
 
-    <script>
-        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
-    </script>
 
 
+  <link rel="canonical" href="https://zhangfu-git.github.io/2016/08/13/2016-8-13/"/>
 
-    <script> yiliaConfig.rootUrl = "\/";</script>
-
-
-
-
-
-
+  <title> 《javascript高级程序设计》笔记05 | 粪兜青年 </title>
 </head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="http://tva4.sinaimg.cn/crop.0.1.640.640.180/9ea24dfdjw8f1njs1l1c7j20hs0hv0ts.jpg" class="animated zoomIn">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">Tryzf</a></h1>
-        </hgroup>
 
-        
-        <p class="header-subtitle">人生苦短 我走前端</p>
-        
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-        
+  
 
 
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
 
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">主页</a></li>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" href="mailto:zhangfu@nasetech.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" href="https://github.com/zhangfu-git" title="GitHub"></a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-笔记/">javascript; 笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript高级设计总结/">javascript高级设计总结</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码片段/">代码片段</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录/">记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
-                    
-                    </div>
-                </section>
-                
 
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">专注于前端</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>                
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">粪兜青年</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">人生苦短 我走前端</p>
 </div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Tryzf</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="http://tva4.sinaimg.cn/crop.0.1.640.640.180/9ea24dfdjw8f1njs1l1c7j20hs0hv0ts.jpg" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">Tryzf</a></h1>
-            </hgroup>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
             
-            <p class="header-subtitle">人生苦短 我走前端</p>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">主页</a></li>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" target="_blank" href="mailto:zhangfu@nasetech.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" target="_blank" href="https://github.com/zhangfu-git" title="GitHub"></a>
-                            
-                        </ul>
-            </nav>
-        </header>                
-    </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
 </nav>
-      <div class="body-wrap"><article id="post-2016-8-13" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/13/2016-8-13/" class="article-date">
-      <time datetime="2016-08-13T01:32:31.000Z" itemprop="datePublished">2016-08-13</time>
-</a>
 
+ </div>
+    </header>
 
-    </div>
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      《javascript高级程序设计》笔记05
-    </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
-    </div>
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《javascript高级程序设计》笔记05
+              
+            
+          </h1>
+        
 
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-13T09:32:31+08:00" content="2016-08-13">
+              2016-08-13
+            </time>
+          </span>
+
           
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/13/2016-8-13/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/13/2016-8-13/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         <h4 id="Date类型"><a href="#Date类型" class="headerlink" title="Date类型"></a>Date类型</h4><blockquote>
 <p>js创建一个日期对象很简单 new Date();Date没有传入日期的毫秒数者获取当前的日期。</p>
 </blockquote>
@@ -340,239 +323,315 @@ getSeconds()      //返回秒数
 </code></pre><h4 id="当然还有很多其他组件方法，以上是比较常用的"><a href="#当然还有很多其他组件方法，以上是比较常用的" class="headerlink" title="当然还有很多其他组件方法，以上是比较常用的"></a>当然还有很多其他组件方法，以上是比较常用的</h4><h2 id="在项目中我们可能会用moment-js这个库来操作日期和时候-用它我们可以很方便的获取我们想要的格式的日期和时间。"><a href="#在项目中我们可能会用moment-js这个库来操作日期和时候-用它我们可以很方便的获取我们想要的格式的日期和时间。" class="headerlink" title="在项目中我们可能会用moment.js这个库来操作日期和时候,用它我们可以很方便的获取我们想要的格式的日期和时间。"></a>在项目中我们可能会用<a href="http://momentjs.cn/" target="_blank" rel="external">moment.js</a>这个库来操作日期和时候,用它我们可以很方便的获取我们想要的格式的日期和时间。</h2>
       
     </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag">#笔记</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/08/浏览器样式兼容问题/" rel="next" title="浏览器样式兼容问题">
+                <i class="fa fa-chevron-left"></i> 浏览器样式兼容问题
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/13/2016-8-13-1/" rel="prev" title="javascript "RegExp类型"">
+                javascript "RegExp类型" <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/13/2016-8-13/"
+           data-title="《javascript高级程序设计》笔记05" data-url="https://zhangfu-git.github.io/2016/08/13/2016-8-13/">
+      </div>
     
   </div>
-  
-    
 
 
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/08/13/2016-8-13-1/">
-                    javascript &quot;RegExp类型&quot;
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/08/08/浏览器样式兼容问题/">
-                    浏览器样式兼容问题
-                </a>
-            </div>
-        
-    </nav>
-
-  
-</article>
-
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Date类型"><span class="toc-number">1.</span> <span class="toc-text">Date类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Date-parse"><span class="toc-number">1.1.</span> <span class="toc-text">Date.parse()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#日期格式化"><span class="toc-number">1.2.</span> <span class="toc-text">日期格式化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#注意-日期对象在不同的浏览器中实现有许多奇怪的行为，其中有一种倾向是将超出范围的值替换为当前值。例如：-January-32-2007在有的浏览器是解析为’February-1-2007’而Opera倾向于插入当前月份的当前日期-January-21-2007-都是21日"><span class="toc-number">1.3.</span> <span class="toc-text">注意: 日期对象在不同的浏览器中实现有许多奇怪的行为，其中有一种倾向是将超出范围的值替换为当前值。例如： January 32, 2007在有的浏览器是解析为’February 1, 2007’而Opera倾向于插入当前月份的当前日期 January 21, 2007(都是21日)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#当然还有很多其他组件方法，以上是比较常用的"><span class="toc-number">2.</span> <span class="toc-text">当然还有很多其他组件方法，以上是比较常用的</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在项目中我们可能会用moment-js这个库来操作日期和时候-用它我们可以很方便的获取我们想要的格式的日期和时间。"><span class="toc-number"></span> <span class="toc-text">在项目中我们可能会用moment.js这个库来操作日期和时候,用它我们可以很方便的获取我们想要的格式的日期和时间。</span></a>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-    <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"true"];
-    </script>
-
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
-        </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"《javascript高级程序设计》笔记05　| 粪兜青年　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-
-
-
-    
-      <div class="duoshuo" id="comments">
-    <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/08/13/2016-8-13/" data-title="《javascript高级程序设计》笔记05" data-url="https://zhangfu-git.github.io/2016/08/13/2016-8-13/"></div>
-    <script>
-        var duoshuoQuery = {short_name:"zhangfu"};
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-            s.async = true; s.charset = 'UTF-8';
-            (d.head || d.body).appendChild(s);
-        }
-
-        
-            // Add comment count
-            $(function(){ 
-                var jsonUrl = "http://api.duoshuo.com/threads/counts.jsonp?short_name=zhangfu&threads=2016/08/13/2016-8-13/&callback=?";
-                $.getJSON(jsonUrl, function(result){
-                    $.each(result.response, function(i, field){
-                        var value = field.comments;
-                        if (value > 0) {
-                            $(".count-comment").text(value);
-                            return;
-                        }
-                    })
-                })
-            })
-        
-    </script>
-    
-    <aside class="comment-bar">
-        <a href="javascript:void(0);">
-            <i class="fa fa-commenting-o animated infinite pulse"></i>
-            <i class="fa fa-spinner fa-pulse"></i>
-            <span class="count-comment"></span>
-        </a>
-    </aside>
-    <script>
-        var $commentBar = $("#comments aside.comment-bar");
-        var load$hide = function(){
-            $commentBar.find("a > i").toggle();
-            loadComment();
-            $commentBar.fadeOut(800);
-        }
-        $commentBar.click(function(){
-            load$hide();
-        })
-        $commentBar.children("a").hover(function(){
-            load$hide();
-        })
-        if (window.location.hash === "#comments") {
-            load$hide();
-        }
-    </script>
-
-</div>
-    
-
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2016/08/13/2016-8-13-1/" title="上一篇: javascript &quot;RegExp类型&quot;">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2016/08/08/浏览器样式兼容问题/" title="下一篇: 浏览器样式兼容问题">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/2016-10-18/">用node爬女神照片</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/16/2016-10-16/">关于React的异步请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/15/2016-10-15/">sails配置webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/14/2016-10-14/">jquery中使用off()的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/08/2016-10-8/">vue.js 1 升级到 vue.js 2.0.1 练习遇到的报错</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/02/2016-10-2/">javascript高级技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/11/2016-9-11/">javascript事件流</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/28/2016-8-28-16/">检测一个对象是否拥有某个方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/28/2016-8-28/">《javascript高级程序设计》笔记09</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/24/2016-8-24/">《javascript高级程序设计》笔记08</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/21/2016-8-21/">vue+webpack入门学习案例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/20/2016-8-20/">《javascript高级程序设计》笔记07</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/19/2016-8-19/">《javascript高级程序设计》笔记06(函数表达式)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/快速搭建webpack-vue项目/">快速搭建一个webpack+vue项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/13/2016-8-13-1/">javascript "RegExp类型"</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/13/2016-8-13/">《javascript高级程序设计》笔记05</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/08/浏览器样式兼容问题/">浏览器样式兼容问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/28/2016-7-28/">《javascript高级程序设计》笔记04</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/27/2016-7-27/"><javascript高级程序设计>笔记03</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/page/">《javascript高级程序设计》笔记02</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/23/javascript高级程序设计01/">[《javascript高级程序设计》笔记01]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/21/讲讲写一个简单的虚拟键盘的难点/">[jquery写一个简单的虚拟键盘核心代码]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/Ubuntu多窗口终端/">[Ubuntu下多窗口终端]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/17/工作中经常使用的几个Git命令/">[工作中经常使用的几个Git命令]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/11/小白前端说之起源/">[前端小白起源说]</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/07/blog/">第一篇hexo 博客</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                <i class="fa fa-copyright"></i> 
-                2016 Tryzf
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
-            </div>
         </div>
         
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>| </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://tva4.sinaimg.cn/crop.0.1.640.640.180/9ea24dfdjw8f1njs1l1c7j20hs0hv0ts.jpg"
+               alt="Tryzf" />
+          <p class="site-author-name" itemprop="name">Tryzf</p>
+          <p class="site-description motion-element" itemprop="description">记录生活的点点滴滴</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              
             </div>
+          
+
+        </nav>
+
         
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Date类型"><span class="nav-number">1.</span> <span class="nav-text">Date类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Date-parse"><span class="nav-number">1.1.</span> <span class="nav-text">Date.parse()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#日期格式化"><span class="nav-number">1.2.</span> <span class="nav-text">日期格式化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注意-日期对象在不同的浏览器中实现有许多奇怪的行为，其中有一种倾向是将超出范围的值替换为当前值。例如：-January-32-2007在有的浏览器是解析为’February-1-2007’而Opera倾向于插入当前月份的当前日期-January-21-2007-都是21日"><span class="nav-number">1.3.</span> <span class="nav-text">注意: 日期对象在不同的浏览器中实现有许多奇怪的行为，其中有一种倾向是将超出范围的值替换为当前值。例如： January 32, 2007在有的浏览器是解析为’February 1, 2007’而Opera倾向于插入当前月份的当前日期 January 21, 2007(都是21日)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当然还有很多其他组件方法，以上是比较常用的"><span class="nav-number">2.</span> <span class="nav-text">当然还有很多其他组件方法，以上是比较常用的</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在项目中我们可能会用moment-js这个库来操作日期和时候-用它我们可以很方便的获取我们想要的格式的日期和时间。"><span class="nav-number"></span> <span class="nav-text">在项目中我们可能会用moment.js这个库来操作日期和时候,用它我们可以很方便的获取我们想要的格式的日期和时间。</span></a></div>
+            
+          </div>
+        </section>
+      
+
     </div>
-</footer>
-    </div>
-    
-<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+  </aside>
 
 
+        
+      </div>
+    </main>
 
-
-
-<div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tryzf</span>
 </div>
-<script>
-    // Open in New Window
-    
-        var oOpenInNew = {
-            
-            
-            
-            
-            
-            
-             archives: ".archive-article-title", 
-             miniArchives: "a.post-list-link", 
-            
-             friends: "#js-friends a", 
-             socail: ".social a" 
-        }
-        for (var x in oOpenInNew) {
-            $(oOpenInNew[x]).attr("target", "_blank");
-        }
-    
-</script>
 
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
+<span id="busuanzi_container_site_pv">
+    &nbsp;&nbsp;Total visits:&nbsp;<span id="busuanzi_value_site_pv"></span>
+</span>
+<span id="busuanzi_container_site_uv">
+  &nbsp;&nbsp;You are Visiter No.<span id="busuanzi_value_site_uv"></span>
+</span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"zhangfu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = '/js/src/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+    <script src="/js/src/embed.js"></script>
+    <link href="/js/src/embed.default.css" rel="stylesheet" type="text/css" />    
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>
